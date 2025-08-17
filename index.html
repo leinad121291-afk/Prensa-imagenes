@@ -621,8 +621,8 @@
             }
             
             .image-display, .name-display {
-                margin: 20px 0;
-                padding: 15px;
+                margin: 15px 0;
+                padding: 10px;
                 min-height: 300px;
                 border-radius: 8px;
             }
@@ -732,40 +732,40 @@
             /* Ajustes específicos para modo dos en dos en móviles */
             .image-display div[style*="display: flex"] {
                 flex-direction: row !important;
-                gap: 5px !important;
+                gap: 2px !important;
                 flex-wrap: wrap !important;
             }
             
             .image-display div[style*="display: flex"] > div {
                 flex: 1 !important;
-                min-width: 48% !important;
+                min-width: 49% !important;
                 max-width: 50% !important;
                 border: 2px solid transparent !important;
                 background: transparent !important;
                 box-shadow: none !important;
-                padding: 4px !important;
+                padding: 2px !important;
             }
             
             .image-display div[style*="display: flex"] img {
-                max-height: 40vh !important;
+                max-height: 45vh !important;
                 max-width: 100% !important;
                 border-radius: 0 !important;
             }
             
             .name-display div[style*="display: flex"] {
                 flex-direction: row !important;
-                gap: 5px !important;
+                gap: 2px !important;
                 flex-wrap: wrap !important;
             }
             
             .name-display div[style*="display: flex"] > div {
                 flex: 1 !important;
-                min-width: 48% !important;
+                min-width: 49% !important;
                 max-width: 50% !important;
                 border: 2px solid #ddd !important;
                 background: rgba(255,255,255,0.1) !important;
                 box-shadow: none !important;
-                padding: 4px !important;
+                padding: 2px !important;
             }
             
             .name-display div[style*="display: flex"] h3 {
@@ -842,19 +842,19 @@
             
             /* Ajustes específicos para modo dos en dos en pantallas muy pequeñas */
             .image-display div[style*="display: flex"] > div {
-                min-width: 48% !important;
+                min-width: 49% !important;
                 max-width: 50% !important;
-                padding: 6px !important;
+                padding: 2px !important;
             }
             
             .image-display div[style*="display: flex"] img {
-                max-height: 30vh !important;
+                max-height: 35vh !important;
             }
             
             .name-display div[style*="display: flex"] > div {
-                min-width: 48% !important;
+                min-width: 49% !important;
                 max-width: 50% !important;
-                padding: 6px !important;
+                padding: 2px !important;
             }
             
             .name-display div[style*="display: flex"] h3 {
@@ -869,52 +869,84 @@
         /* CSS para modo apaisado en móviles */
         @media (max-width: 768px) and (orientation: landscape) {
             .game-container {
-                padding: 10px;
+                padding: 5px;
                 min-height: auto;
             }
             
             .title {
-                font-size: 1.2rem;
-                margin-bottom: 10px;
+                font-size: 1rem;
+                margin-bottom: 5px;
             }
             
             .phase-title {
-                font-size: 1rem;
-                margin-bottom: 8px;
+                font-size: 0.9rem;
+                margin-bottom: 5px;
             }
             
             .image-display, .name-display {
-                min-height: 200px;
-                padding: 8px;
-                margin: 10px 0;
+                min-height: 150px;
+                padding: 5px;
+                margin: 5px 0;
+            }
+            
+            /* Optimización extrema para modo dos en dos en apaisado */
+            .image-display div[style*="display: flex"] {
+                gap: 0px !important;
+                justify-content: space-between !important;
+            }
+            
+            .image-display div[style*="display: flex"] > div {
+                min-width: 49% !important;
+                max-width: 50% !important;
+                padding: 2px !important;
+                margin: 0 !important;
             }
             
             .image-display div[style*="display: flex"] img {
-                max-height: 25vh !important;
-            }
-            
-            .name-display div[style*="display: flex"] h3 {
-                font-size: 1rem !important;
+                max-height: 35vh !important;
+                max-width: 100% !important;
             }
             
             .image-display div[style*="display: flex"] p {
-                font-size: 1rem !important;
+                font-size: 1.2rem !important;
+                margin-top: 5px !important;
+                margin-bottom: 0 !important;
+            }
+            
+            /* Optimización para nombres en modo apaisado */
+            .name-display div[style*="display: flex"] {
+                gap: 0px !important;
+                justify-content: space-between !important;
+            }
+            
+            .name-display div[style*="display: flex"] > div {
+                min-width: 49% !important;
+                max-width: 50% !important;
+                padding: 8px !important;
+                margin: 0 !important;
+                border-radius: 8px !important;
+            }
+            
+            .name-display div[style*="display: flex"] h3 {
+                font-size: 1.4rem !important;
+                margin: 0 !important;
+                line-height: 1.2 !important;
             }
             
             .button {
-                font-size: 0.8rem;
-                padding: 8px 12px;
-                margin: 3px;
+                font-size: 0.7rem;
+                padding: 6px 10px;
+                margin: 2px;
             }
             
             .timer {
-                font-size: 0.8rem;
-                margin: 8px 0;
+                font-size: 0.7rem;
+                margin: 5px 0;
             }
             
             .progress-indicator {
-                font-size: 0.8rem;
-                margin: 8px 0;
+                font-size: 0.7rem;
+                margin: 5px 0;
             }
             
             /* Ocultar texto de ayuda en modo apaisado para ahorrar espacio */
@@ -924,7 +956,16 @@
             
             /* Ajustar espaciado de botones */
             div[style*="margin: 15px 0"] {
-                margin: 8px 0 !important;
+                margin: 5px 0 !important;
+            }
+            
+            /* Reducir espaciado general */
+            .name-card {
+                padding: 10px !important;
+            }
+            
+            .name-card h3 {
+                font-size: 1.2rem !important;
             }
         }
         
@@ -1246,9 +1287,15 @@
         // Detectar si es dispositivo móvil
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
         
+        // Detectar si está en modo apaisado
+        window.isLandscape = window.innerWidth > window.innerHeight;
+        
         // Función para manejar cambios de orientación en móviles
         function handleOrientationChange() {
             if (isMobile) {
+                // Actualizar la detección de orientación
+                window.isLandscape = window.innerWidth > window.innerHeight;
+                
                 // Forzar el reflow del layout
                 document.body.style.display = 'none';
                 document.body.offsetHeight; // Trigger reflow
@@ -2528,12 +2575,12 @@
                         const nextName = gameImageNames[nextIndex];
                         // Crear dos cuadros separados para los nombres
                         nameElement.innerHTML = `
-                            <div style="display: flex; justify-content: center; gap: ${isMobile ? '5px' : '10px'}; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
-                                <div style="text-align: center; display: inline-block; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 48%; max-width: 50%;' : 'min-width: 200px; max-width: 45%;'}">
-                                    <h3 style="margin: 0; color: white; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word;">${currentName}</h3>
+                            <div style="display: flex; justify-content: ${isMobile && window.isLandscape ? 'space-between' : 'center'}; gap: ${isMobile && window.isLandscape ? '0px' : isMobile ? '2px' : '10px'}; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '4px' : '16px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 49%; max-width: 50%;' : 'min-width: 200px; max-width: 45%;'}">
+                                    <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.4rem' : isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'};">${currentName}</h3>
                                 </div>
-                                <div style="text-align: center; display: inline-block; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 48%; max-width: 50%;' : 'min-width: 200px; max-width: 45%;'}">
-                                    <h3 style="margin: 0; color: white; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word;">${nextName}</h3>
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '4px' : '16px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 49%; max-width: 50%;' : 'min-width: 200px; max-width: 45%;'}">
+                                    <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.4rem' : isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'};">${nextName}</h3>
                                 </div>
                             </div>
                         `;
@@ -2542,8 +2589,8 @@
                         // Último nombre solo
                         nameElement.innerHTML = `
                             <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
-                                <div style="text-align: center; display: inline-block; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 48%; max-width: 50%;' : 'min-width: 200px; max-width: 45%;'}">
-                                    <h3 style="margin: 0; color: white; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold;">${currentName}</h3>
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '4px' : '16px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 49%; max-width: 50%;' : 'min-width: 200px; max-width: 45%;'}">
+                                    <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.4rem' : isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'};">${currentName}</h3>
                                 </div>
                             </div>
                         `;
@@ -2602,18 +2649,18 @@
                         console.log('Siguiente nombre:', gameImageNames[nextIndex]);
                         // Crear una imagen combinada o mostrar ambas
                         imageContainer.innerHTML = `
-                            <div style="display: flex; justify-content: center; gap: ${isMobile ? '5px' : '10px'}; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
-                                <div style="text-align: center; flex: 1; min-width: ${isMobile ? '48%' : '200px'}; max-width: ${isMobile ? '50%' : '45%'}; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
+                            <div style="display: flex; justify-content: ${isMobile && window.isLandscape ? 'space-between' : 'center'}; gap: ${isMobile && window.isLandscape ? '0px' : isMobile ? '2px' : '10px'}; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
+                                <div style="text-align: center; flex: 1; min-width: ${isMobile ? '49%' : '200px'}; max-width: ${isMobile ? '50%' : '45%'}; padding: ${isMobile && window.isLandscape ? '2px' : isMobile ? '4px' : '16px'}; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
                                     <div style="position: relative; width: 100%;">
-                                        <img src="${currentImage}" style="max-width: 100%; max-height: ${isMobile ? '40vh' : '50vh'}; object-fit: contain;">
+                                        <img src="${currentImage}" style="max-width: 100%; max-height: ${isMobile && window.isLandscape ? '35vh' : isMobile ? '45vh' : '50vh'}; object-fit: contain;">
                                     </div>
-                                    <p style="margin-top: 10px; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[currentImageIndex]}</p>
+                                    <p style="margin-top: ${isMobile && window.isLandscape ? '5px' : '10px'}; margin-bottom: 0; font-size: ${isMobile && window.isLandscape ? '1.2rem' : isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[currentImageIndex]}</p>
                                 </div>
-                                <div style="text-align: center; flex: 1; min-width: ${isMobile ? '48%' : '200px'}; max-width: ${isMobile ? '50%' : '45%'}; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
+                                <div style="text-align: center; flex: 1; min-width: ${isMobile ? '49%' : '200px'}; max-width: ${isMobile ? '50%' : '45%'}; padding: ${isMobile && window.isLandscape ? '2px' : isMobile ? '4px' : '16px'}; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
                                     <div style="position: relative; width: 100%;">
-                                        <img src="${nextImage}" style="max-width: 100%; max-height: ${isMobile ? '40vh' : '50vh'}; object-fit: contain;">
+                                        <img src="${nextImage}" style="max-width: 100%; max-height: ${isMobile && window.isLandscape ? '35vh' : isMobile ? '45vh' : '50vh'}; object-fit: contain;">
                                     </div>
-                                    <p style="margin-top: 10px; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[nextIndex]}</p>
+                                    <p style="margin-top: ${isMobile && window.isLandscape ? '5px' : '10px'}; margin-bottom: 0; font-size: ${isMobile && window.isLandscape ? '1.2rem' : isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[nextIndex]}</p>
                                 </div>
                             </div>
                         `;
@@ -2622,9 +2669,9 @@
                         // Última imagen sola
                         imageContainer.innerHTML = `
                             <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
-                                <div style="text-align: center; max-width: ${isMobile ? '50%' : '45%'}; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid transparent; border-radius: 16px; background: transparent;">
-                                    <img src="${currentImage}" style="max-width: 100%; max-height: ${isMobile ? '40vh' : '50vh'}; object-fit: contain;">
-                                    <p style="margin-top: 10px; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; color: white;">${gameImageNames[currentImageIndex]}</p>
+                                <div style="text-align: center; max-width: ${isMobile ? '50%' : '45%'}; padding: ${isMobile && window.isLandscape ? '2px' : isMobile ? '4px' : '16px'}; border: 2px solid transparent; border-radius: 16px; background: transparent;">
+                                    <img src="${currentImage}" style="max-width: 100%; max-height: ${isMobile && window.isLandscape ? '35vh' : isMobile ? '45vh' : '50vh'}; object-fit: contain;">
+                                    <p style="margin-top: ${isMobile && window.isLandscape ? '5px' : '10px'}; margin-bottom: 0; font-size: ${isMobile && window.isLandscape ? '1.2rem' : isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; color: white;">${gameImageNames[currentImageIndex]}</p>
                                 </div>
                             </div>
                         `;
