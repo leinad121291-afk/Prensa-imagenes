@@ -732,40 +732,40 @@
             /* Ajustes específicos para modo dos en dos en móviles */
             .image-display div[style*="display: flex"] {
                 flex-direction: row !important;
-                gap: 10px !important;
+                gap: 5px !important;
                 flex-wrap: wrap !important;
             }
             
             .image-display div[style*="display: flex"] > div {
                 flex: 1 !important;
-                min-width: 45% !important;
-                max-width: 48% !important;
+                min-width: 48% !important;
+                max-width: 50% !important;
                 border: 2px solid transparent !important;
                 background: transparent !important;
                 box-shadow: none !important;
-                padding: 8px !important;
+                padding: 4px !important;
             }
             
             .image-display div[style*="display: flex"] img {
-                max-height: 35vh !important;
+                max-height: 40vh !important;
                 max-width: 100% !important;
                 border-radius: 0 !important;
             }
             
             .name-display div[style*="display: flex"] {
                 flex-direction: row !important;
-                gap: 10px !important;
+                gap: 5px !important;
                 flex-wrap: wrap !important;
             }
             
             .name-display div[style*="display: flex"] > div {
                 flex: 1 !important;
-                min-width: 45% !important;
-                max-width: 48% !important;
+                min-width: 48% !important;
+                max-width: 50% !important;
                 border: 2px solid #ddd !important;
                 background: rgba(255,255,255,0.1) !important;
                 box-shadow: none !important;
-                padding: 8px !important;
+                padding: 4px !important;
             }
             
             .name-display div[style*="display: flex"] h3 {
@@ -863,6 +863,68 @@
             
             .image-display div[style*="display: flex"] p {
                 font-size: 1.2rem !important;
+            }
+        }
+        
+        /* CSS para modo apaisado en móviles */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .game-container {
+                padding: 10px;
+                min-height: auto;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+            
+            .phase-title {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+            
+            .image-display, .name-display {
+                min-height: 200px;
+                padding: 8px;
+                margin: 10px 0;
+            }
+            
+            .image-display div[style*="display: flex"] img {
+                max-height: 25vh !important;
+            }
+            
+            .name-display div[style*="display: flex"] h3 {
+                font-size: 1rem !important;
+            }
+            
+            .image-display div[style*="display: flex"] p {
+                font-size: 1rem !important;
+            }
+            
+            .button {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+                margin: 3px;
+            }
+            
+            .timer {
+                font-size: 0.8rem;
+                margin: 8px 0;
+            }
+            
+            .progress-indicator {
+                font-size: 0.8rem;
+                margin: 8px 0;
+            }
+            
+            /* Ocultar texto de ayuda en modo apaisado para ahorrar espacio */
+            p[style*="font-size: 0.9rem"] {
+                display: none !important;
+            }
+            
+            /* Ajustar espaciado de botones */
+            div[style*="margin: 15px 0"] {
+                margin: 8px 0 !important;
             }
         }
         
@@ -1106,19 +1168,22 @@
                 </div>
             </div>
             <div class="progress-indicator" id="prep-progress">Nombre 1 de 5</div>
-            <p id="preparation-info">Lee el nombre de la imagen que vas a memorizar.</p>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">💡 Presiona <strong>Escape</strong> para finalizar la partida en cualquier momento</p>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">💡 Presiona <strong>F11</strong> para alternar pantalla completa</p>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;" id="order-info">🔄 En modo aleatorio, el orden cambia en cada ciclo</p>
-            <div style="margin: 20px 0;" id="prep-navigation" style="display: none;">
+            
+            <!-- Botones de navegación y control para móviles -->
+            <div style="margin: 15px 0;" id="prep-navigation" style="display: none;">
                 <button class="button" id="prep-prev-btn" onclick="previousImage()" disabled>← Anterior</button>
                 <button class="button" id="prep-next-btn" onclick="nextImage()">Siguiente →</button>
             </div>
-            <div style="margin: 20px 0;">
+            <div style="margin: 15px 0;">
                 <button class="button pause-button" id="prep-pause-btn" onclick="pauseGame()" style="display: none;">⏸️ Pausar</button>
                 <button class="button resume-button" id="prep-resume-btn" onclick="resumeGame()" style="display: none;">▶️ Reanudar</button>
                 <button class="button finish-button" onclick="finishGame()">Finalizar Partida</button>
             </div>
+            
+            <p id="preparation-info">Lee el nombre de la imagen que vas a memorizar.</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">💡 Presiona <strong>Escape</strong> para finalizar la partida en cualquier momento</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">💡 Presiona <strong>F11</strong> para alternar pantalla completa</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;" id="order-info">🔄 En modo aleatorio, el orden cambia en cada ciclo</p>
         </div>
 
         <!-- Fase de Memorización (IMAGEN) -->
@@ -1129,19 +1194,22 @@
                 <img id="current-image" src="" alt="Imagen para memorizar">
             </div>
             <div class="progress-indicator" id="progress">Imagen 1 de 5</div>
-            <p id="memorization-info">Ahora memoriza la imagen correspondiente al nombre que leíste.</p>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">💡 Presiona <strong>Escape</strong> para finalizar la partida en cualquier momento</p>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">💡 Presiona <strong>F11</strong> para alternar pantalla completa</p>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;" id="order-info">🔄 En modo aleatorio, el orden cambia en cada ciclo</p>
-            <div style="margin: 20px 0;" id="mem-navigation" style="display: none;">
+            
+            <!-- Botones de navegación y control para móviles -->
+            <div style="margin: 15px 0;" id="mem-navigation" style="display: none;">
                 <button class="button" id="mem-prev-btn" onclick="previousImage()" disabled>← Anterior</button>
                 <button class="button" id="mem-next-btn" onclick="nextImage()">Siguiente →</button>
             </div>
-            <div style="margin: 20px 0;">
+            <div style="margin: 15px 0;">
                 <button class="button pause-button" id="mem-pause-btn" onclick="pauseGame()" style="display: none;">⏸️ Pausar</button>
                 <button class="button resume-button" id="mem-resume-btn" onclick="resumeGame()" style="display: none;">▶️ Reanudar</button>
                 <button class="button finish-button" onclick="finishGame()">Finalizar Partida</button>
             </div>
+            
+            <p id="memorization-info">Ahora memoriza la imagen correspondiente al nombre que leíste.</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">💡 Presiona <strong>Escape</strong> para finalizar la partida en cualquier momento</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">💡 Presiona <strong>F11</strong> para alternar pantalla completa</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;" id="order-info">🔄 En modo aleatorio, el orden cambia en cada ciclo</p>
         </div>
 
         <!-- Fase de Resultado -->
@@ -2460,11 +2528,11 @@
                         const nextName = gameImageNames[nextIndex];
                         // Crear dos cuadros separados para los nombres
                         nameElement.innerHTML = `
-                            <div style="display: flex; justify-content: center; gap: 10px; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
-                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 45%; max-width: 48%;' : 'min-width: 200px; max-width: 45%;'}">
+                            <div style="display: flex; justify-content: center; gap: ${isMobile ? '5px' : '10px'}; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 48%; max-width: 50%;' : 'min-width: 200px; max-width: 45%;'}">
                                     <h3 style="margin: 0; color: white; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word;">${currentName}</h3>
                                 </div>
-                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 45%; max-width: 48%;' : 'min-width: 200px; max-width: 45%;'}">
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 48%; max-width: 50%;' : 'min-width: 200px; max-width: 45%;'}">
                                     <h3 style="margin: 0; color: white; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word;">${nextName}</h3>
                                 </div>
                             </div>
@@ -2474,7 +2542,7 @@
                         // Último nombre solo
                         nameElement.innerHTML = `
                             <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
-                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 45%; max-width: 48%;' : 'min-width: 200px; max-width: 45%;'}">
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 48%; max-width: 50%;' : 'min-width: 200px; max-width: 45%;'}">
                                     <h3 style="margin: 0; color: white; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold;">${currentName}</h3>
                                 </div>
                             </div>
@@ -2534,16 +2602,16 @@
                         console.log('Siguiente nombre:', gameImageNames[nextIndex]);
                         // Crear una imagen combinada o mostrar ambas
                         imageContainer.innerHTML = `
-                            <div style="display: flex; justify-content: center; gap: 10px; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
-                                <div style="text-align: center; flex: 1; min-width: ${isMobile ? '45%' : '200px'}; max-width: ${isMobile ? '48%' : '45%'}; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
+                            <div style="display: flex; justify-content: center; gap: ${isMobile ? '5px' : '10px'}; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
+                                <div style="text-align: center; flex: 1; min-width: ${isMobile ? '48%' : '200px'}; max-width: ${isMobile ? '50%' : '45%'}; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
                                     <div style="position: relative; width: 100%;">
-                                        <img src="${currentImage}" style="max-width: 100%; max-height: ${isMobile ? '35vh' : '50vh'}; object-fit: contain;">
+                                        <img src="${currentImage}" style="max-width: 100%; max-height: ${isMobile ? '40vh' : '50vh'}; object-fit: contain;">
                                     </div>
                                     <p style="margin-top: 10px; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[currentImageIndex]}</p>
                                 </div>
-                                <div style="text-align: center; flex: 1; min-width: ${isMobile ? '45%' : '200px'}; max-width: ${isMobile ? '48%' : '45%'}; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
+                                <div style="text-align: center; flex: 1; min-width: ${isMobile ? '48%' : '200px'}; max-width: ${isMobile ? '50%' : '45%'}; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
                                     <div style="position: relative; width: 100%;">
-                                        <img src="${nextImage}" style="max-width: 100%; max-height: ${isMobile ? '35vh' : '50vh'}; object-fit: contain;">
+                                        <img src="${nextImage}" style="max-width: 100%; max-height: ${isMobile ? '40vh' : '50vh'}; object-fit: contain;">
                                     </div>
                                     <p style="margin-top: 10px; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[nextIndex]}</p>
                                 </div>
@@ -2554,8 +2622,8 @@
                         // Última imagen sola
                         imageContainer.innerHTML = `
                             <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
-                                <div style="text-align: center; max-width: ${isMobile ? '48%' : '45%'}; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent;">
-                                    <img src="${currentImage}" style="max-width: 100%; max-height: ${isMobile ? '35vh' : '50vh'}; object-fit: contain;">
+                                <div style="text-align: center; max-width: ${isMobile ? '50%' : '45%'}; padding: ${isMobile ? '8px' : '16px'}; border: 2px solid transparent; border-radius: 16px; background: transparent;">
+                                    <img src="${currentImage}" style="max-width: 100%; max-height: ${isMobile ? '40vh' : '50vh'}; object-fit: contain;">
                                     <p style="margin-top: 10px; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; color: white;">${gameImageNames[currentImageIndex]}</p>
                                 </div>
                             </div>
