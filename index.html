@@ -731,47 +731,51 @@
             
             /* Ajustes específicos para modo dos en dos en móviles */
             .image-display div[style*="display: flex"] {
-                flex-direction: column !important;
-                gap: 15px !important;
+                flex-direction: row !important;
+                gap: 10px !important;
+                flex-wrap: wrap !important;
             }
             
             .image-display div[style*="display: flex"] > div {
-                flex: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
+                flex: 1 !important;
+                min-width: 45% !important;
+                max-width: 48% !important;
                 border: 2px solid transparent !important;
                 background: transparent !important;
                 box-shadow: none !important;
-                padding: 12px !important;
+                padding: 8px !important;
             }
             
             .image-display div[style*="display: flex"] img {
-                max-height: 200px !important;
+                max-height: 35vh !important;
                 max-width: 100% !important;
                 border-radius: 0 !important;
             }
             
             .name-display div[style*="display: flex"] {
-                flex-direction: column !important;
-                gap: 15px !important;
+                flex-direction: row !important;
+                gap: 10px !important;
+                flex-wrap: wrap !important;
             }
             
             .name-display div[style*="display: flex"] > div {
-                flex: none !important;
-                width: auto !important;
-                max-width: none !important;
+                flex: 1 !important;
+                min-width: 45% !important;
+                max-width: 48% !important;
                 border: 2px solid #ddd !important;
                 background: rgba(255,255,255,0.1) !important;
                 box-shadow: none !important;
-                padding: 12px !important;
+                padding: 8px !important;
             }
             
             .name-display div[style*="display: flex"] h3 {
                 color: white !important;
+                font-size: 1.4rem !important;
             }
             
             .image-display div[style*="display: flex"] p {
                 color: white !important;
+                font-size: 1.4rem !important;
             }
             
             /* Ocultar texto de ayuda en móviles */
@@ -834,6 +838,31 @@
             
             .progress-indicator {
                 font-size: 0.8rem;
+            }
+            
+            /* Ajustes específicos para modo dos en dos en pantallas muy pequeñas */
+            .image-display div[style*="display: flex"] > div {
+                min-width: 48% !important;
+                max-width: 50% !important;
+                padding: 6px !important;
+            }
+            
+            .image-display div[style*="display: flex"] img {
+                max-height: 30vh !important;
+            }
+            
+            .name-display div[style*="display: flex"] > div {
+                min-width: 48% !important;
+                max-width: 50% !important;
+                padding: 6px !important;
+            }
+            
+            .name-display div[style*="display: flex"] h3 {
+                font-size: 1.2rem !important;
+            }
+            
+            .image-display div[style*="display: flex"] p {
+                font-size: 1.2rem !important;
             }
         }
         
@@ -2431,22 +2460,22 @@
                         const nextName = gameImageNames[nextIndex];
                         // Crear dos cuadros separados para los nombres
                         nameElement.innerHTML = `
-                            <div style="display: flex; justify-content: center; gap: 10px; align-items: center; height: 100%; width: 100%; flex-wrap: wrap;">
-                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1);">
-                                    <h3 style="margin: 0; color: white; font-size: 2.2rem; font-weight: bold; word-wrap: break-word;">${currentName}</h3>
+                            <div style="display: flex; justify-content: center; gap: 10px; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: ${isMobile ? 'column' : 'row'};">
+                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'width: 90%; margin: 5px 0;' : 'min-width: 200px; max-width: 45%;'}">
+                                    <h3 style="margin: 0; color: white; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word;">${currentName}</h3>
                                 </div>
-                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1);">
-                                    <h3 style="margin: 0; color: white; font-size: 2.2rem; font-weight: bold; word-wrap: break-word;">${nextName}</h3>
+                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'width: 90%; margin: 5px 0;' : 'min-width: 200px; max-width: 45%;'}">
+                                    <h3 style="margin: 0; color: white; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word;">${nextName}</h3>
                                 </div>
                             </div>
                         `;
                         progress.textContent = `Nombres ${currentImageIndex + 1}-${nextIndex + 1} de ${gameImageNames.length}`;
                     } else {
-                        // Última imagen sola
+                        // Último nombre solo
                         nameElement.innerHTML = `
                             <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
-                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1);">
-                                    <h3 style="margin: 0; color: white; font-size: 2.2rem; font-weight: bold;">${currentName}</h3>
+                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1); ${isMobile ? 'width: 90%;' : 'min-width: 200px; max-width: 45%;'}">
+                                    <h3 style="margin: 0; color: white; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold;">${currentName}</h3>
                                 </div>
                             </div>
                         `;
@@ -2505,18 +2534,18 @@
                         console.log('Siguiente nombre:', gameImageNames[nextIndex]);
                         // Crear una imagen combinada o mostrar ambas
                         imageContainer.innerHTML = `
-                            <div style="display: flex; justify-content: center; gap: 10px; align-items: center; height: 100%; width: 100%; flex-wrap: wrap;">
-                                <div style="text-align: center; flex: 1; min-width: 200px; max-width: 45%; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
-                                    <div style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 60%;">
-                                        <img src="${currentImage}" style="max-width: 100%; max-height: 50vh; object-fit: contain;">
+                            <div style="display: flex; justify-content: center; gap: 10px; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: ${isMobile ? 'column' : 'row'};">
+                                <div style="text-align: center; flex: 1; min-width: ${isMobile ? '100%' : '200px'}; max-width: ${isMobile ? '100%' : '45%'}; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative; ${isMobile ? 'margin: 5px 0;' : ''}">
+                                    <div style="position: ${isMobile ? 'static' : 'relative'}; width: ${isMobile ? '100%' : '100%'};">
+                                        <img src="${currentImage}" style="max-width: 100%; max-height: ${isMobile ? '40vh' : '50vh'}; object-fit: contain;">
                                     </div>
-                                    <p style="margin-top: 10px; font-size: 2.2rem; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[currentImageIndex]}</p>
+                                    <p style="margin-top: 10px; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[currentImageIndex]}</p>
                                 </div>
-                                <div style="text-align: center; flex: 1; min-width: 200px; max-width: 45%; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
-                                    <div style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 60%;">
-                                        <img src="${nextImage}" style="max-width: 100%; max-height: 50vh; object-fit: contain;">
+                                <div style="text-align: center; flex: 1; min-width: ${isMobile ? '100%' : '200px'}; max-width: ${isMobile ? '100%' : '45%'}; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative; ${isMobile ? 'margin: 5px 0;' : ''}">
+                                    <div style="position: ${isMobile ? 'static' : 'relative'}; width: ${isMobile ? '100%' : '100%'};">
+                                        <img src="${nextImage}" style="max-width: 100%; max-height: ${isMobile ? '40vh' : '50vh'}; object-fit: contain;">
                                     </div>
-                                    <p style="margin-top: 10px; font-size: 2.2rem; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[nextIndex]}</p>
+                                    <p style="margin-top: 10px; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[nextIndex]}</p>
                                 </div>
                             </div>
                         `;
@@ -2525,9 +2554,9 @@
                         // Última imagen sola
                         imageContainer.innerHTML = `
                             <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
-                                <div style="text-align: center; max-width: 45%; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent;">
-                                    <img src="${currentImage}" style="max-width: 100%; max-height: 50vh; object-fit: contain;">
-                                    <p style="margin-top: 10px; font-size: 2.2rem; font-weight: bold; color: white;">${gameImageNames[currentImageIndex]}</p>
+                                <div style="text-align: center; max-width: ${isMobile ? '90%' : '45%'}; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent;">
+                                    <img src="${currentImage}" style="max-width: 100%; max-height: ${isMobile ? '40vh' : '50vh'}; object-fit: contain;">
+                                    <p style="margin-top: 10px; font-size: ${isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; color: white;">${gameImageNames[currentImageIndex]}</p>
                                 </div>
                             </div>
                         `;
