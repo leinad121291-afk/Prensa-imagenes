@@ -928,17 +928,17 @@
             /* Optimización para nombres en modo apaisado */
             .name-display div[style*="display: flex"] {
                 gap: 1px !important;
-                justify-content: space-between !important;
+                justify-content: center !important;
             }
             
             .name-display div[style*="display: flex"] > div {
                 min-width: 0 !important;
-                max-width: none !important;
+                max-width: 200px !important;
                 width: fit-content !important;
                 padding: 8px !important;
                 margin: 0 !important;
                 border-radius: 8px !important;
-                flex: 1 !important;
+                flex: 0 1 auto !important;
             }
             
             .name-display div[style*="display: flex"] h3 {
@@ -953,12 +953,12 @@
             /* Reglas adicionales para asegurar que se apliquen en móviles apaisado */
             .name-display div[style*="width: fit-content"] {
                 min-width: 0 !important;
-                max-width: none !important;
+                max-width: 200px !important;
                 width: fit-content !important;
                 padding: 8px !important;
                 margin: 0 !important;
                 border-radius: 8px !important;
-                flex: 1 !important;
+                flex: 0 1 auto !important;
             }
             
             .name-display div[style*="width: fit-content"] h3 {
@@ -974,12 +974,12 @@
             @media (max-width: 768px) and (orientation: landscape) {
                 .name-display div[style*="display: flex"] > div {
                     min-width: 0 !important;
-                    max-width: none !important;
+                    max-width: 200px !important;
                     width: fit-content !important;
                     padding: 8px !important;
                     margin: 0 !important;
                     border-radius: 8px !important;
-                    flex: 1 !important;
+                    flex: 0 1 auto !important;
                 }
                 
                 .name-display div[style*="display: flex"] > div h3 {
@@ -2701,11 +2701,11 @@
                         const nameGap = isDesktop ? '10px' : isTablet ? '15px' : (isMobile && window.isLandscape ? '0px' : '2px');
                         
                         nameElement.innerHTML = `
-                            <div style="display: flex; justify-content: ${isMobile && window.isLandscape ? 'space-between' : 'center'}; gap: ${isMobile ? '1px' : '1px'}; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
-                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '6px 8px' : '10px 12px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); flex: 1; min-width: 0; max-width: none; width: fit-content;">
+                            <div style="display: flex; justify-content: ${isMobile && window.isLandscape ? 'center' : 'center'}; gap: ${isMobile ? '1px' : '1px'}; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '6px 8px' : '10px 12px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); ${isMobile && window.isLandscape ? 'flex: 0 1 auto; min-width: 0; max-width: 200px; width: fit-content;' : 'flex: 1; min-width: 0; max-width: none; width: fit-content;'}">
                                     <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.6rem' : isMobile ? '2.2rem' : '2.8rem'}; font-weight: bold; word-wrap: break-word; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'}; white-space: nowrap;">${currentName}</h3>
                                 </div>
-                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '6px 8px' : '10px 12px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); flex: 1; min-width: 0; max-width: none; width: fit-content;">
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '6px 8px' : '10px 12px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); ${isMobile && window.isLandscape ? 'flex: 0 1 auto; min-width: 0; max-width: 200px; width: fit-content;' : 'flex: 1; min-width: 0; max-width: none; width: fit-content;'}">
                                     <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.6rem' : isMobile ? '2.2rem' : '2.8rem'}; font-weight: bold; word-wrap: break-word; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'}; white-space: nowrap;">${nextName}</h3>
                                 </div>
                             </div>
@@ -2719,7 +2719,7 @@
                         
                         nameElement.innerHTML = `
                             <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
-                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '6px 8px' : '10px 12px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); width: fit-content;">
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '6px 8px' : '10px 12px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); ${isMobile && window.isLandscape ? 'width: fit-content; max-width: 200px;' : 'width: fit-content;'}">
                                     <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.6rem' : isMobile ? '2.2rem' : '2.8rem'}; font-weight: bold; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'}; white-space: nowrap;">${currentName}</h3>
                                 </div>
                             </div>
