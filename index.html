@@ -754,23 +754,25 @@
             
             .name-display div[style*="display: flex"] {
                 flex-direction: row !important;
-                gap: 2px !important;
+                gap: 1px !important;
                 flex-wrap: wrap !important;
             }
             
             .name-display div[style*="display: flex"] > div {
                 flex: 1 !important;
-                min-width: 49% !important;
-                max-width: 50% !important;
+                min-width: 0 !important;
+                max-width: none !important;
+                width: fit-content !important;
                 border: 2px solid #ddd !important;
                 background: rgba(255,255,255,0.1) !important;
                 box-shadow: none !important;
-                padding: 2px !important;
+                padding: 6px 8px !important;
             }
             
             .name-display div[style*="display: flex"] h3 {
                 color: white !important;
-                font-size: 1.4rem !important;
+                font-size: 2.2rem !important;
+                white-space: nowrap !important;
             }
             
             .image-display div[style*="display: flex"] p {
@@ -841,6 +843,10 @@
             }
             
             /* Ajustes específicos para modo dos en dos en pantallas muy pequeñas */
+            .image-display div[style*="display: flex"] {
+                gap: 1px !important;
+            }
+            
             .image-display div[style*="display: flex"] > div {
                 min-width: 49% !important;
                 max-width: 50% !important;
@@ -851,14 +857,20 @@
                 max-height: 35vh !important;
             }
             
+            .name-display div[style*="display: flex"] {
+                gap: 1px !important;
+            }
+            
             .name-display div[style*="display: flex"] > div {
-                min-width: 49% !important;
-                max-width: 50% !important;
-                padding: 2px !important;
+                min-width: 0 !important;
+                max-width: none !important;
+                width: fit-content !important;
+                padding: 6px 8px !important;
             }
             
             .name-display div[style*="display: flex"] h3 {
-                font-size: 1.2rem !important;
+                font-size: 2.2rem !important;
+                white-space: nowrap !important;
             }
             
             .image-display div[style*="display: flex"] p {
@@ -915,22 +927,24 @@
             
             /* Optimización para nombres en modo apaisado */
             .name-display div[style*="display: flex"] {
-                gap: 0px !important;
+                gap: 1px !important;
                 justify-content: space-between !important;
             }
             
             .name-display div[style*="display: flex"] > div {
-                min-width: 49% !important;
-                max-width: 50% !important;
+                min-width: 0 !important;
+                max-width: none !important;
+                width: fit-content !important;
                 padding: 8px !important;
                 margin: 0 !important;
                 border-radius: 8px !important;
             }
             
             .name-display div[style*="display: flex"] h3 {
-                font-size: 1.4rem !important;
+                font-size: 1.6rem !important;
                 margin: 0 !important;
                 line-height: 1.2 !important;
+                white-space: nowrap !important;
             }
             
             .button {
@@ -1017,7 +1031,7 @@
             }
             
             .name-display div[style*="display: flex"] {
-                gap: 10px !important;
+                gap: 1px !important;
                 justify-content: center !important;
             }
             
@@ -1028,9 +1042,15 @@
             }
             
             .name-display div[style*="display: flex"] > div {
-                min-width: 240px !important;
-                max-width: 240px !important;
-                padding: 8px !important;
+                min-width: 0 !important;
+                max-width: none !important;
+                width: fit-content !important;
+                padding: 10px 12px !important;
+            }
+            
+            .name-display div[style*="display: flex"] h3 {
+                font-size: 2.8rem !important;
+                white-space: nowrap !important;
             }
         }
         
@@ -1042,7 +1062,7 @@
             }
             
             .name-display div[style*="display: flex"] {
-                gap: 15px !important;
+                gap: 1px !important;
                 justify-content: center !important;
             }
             
@@ -1053,9 +1073,15 @@
             }
             
             .name-display div[style*="display: flex"] > div {
-                min-width: 216px !important;
-                max-width: 216px !important;
-                padding: 8px !important;
+                min-width: 0 !important;
+                max-width: none !important;
+                width: fit-content !important;
+                padding: 10px 12px !important;
+            }
+            
+            .name-display div[style*="display: flex"] h3 {
+                font-size: 2.8rem !important;
+                white-space: nowrap !important;
             }
         }
         
@@ -2630,12 +2656,12 @@
                         const nameGap = isDesktop ? '10px' : isTablet ? '15px' : (isMobile && window.isLandscape ? '0px' : '2px');
                         
                         nameElement.innerHTML = `
-                            <div style="display: flex; justify-content: ${isMobile && window.isLandscape ? 'space-between' : 'center'}; gap: ${nameGap}; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
-                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '4px' : '8px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 49%; max-width: 50%;' : `min-width: ${nameWidth}; max-width: ${nameWidth};`}">
-                                    <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.4rem' : isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'};">${currentName}</h3>
+                            <div style="display: flex; justify-content: ${isMobile && window.isLandscape ? 'space-between' : 'center'}; gap: ${isMobile ? '1px' : '1px'}; align-items: center; height: 100%; width: 100%; flex-wrap: wrap; flex-direction: row;">
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '6px 8px' : '10px 12px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); flex: 1; min-width: 0; max-width: none; width: fit-content;">
+                                    <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.6rem' : isMobile ? '2.2rem' : '2.8rem'}; font-weight: bold; word-wrap: break-word; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'}; white-space: nowrap;">${currentName}</h3>
                                 </div>
-                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '4px' : '8px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 49%; max-width: 50%;' : `min-width: ${nameWidth}; max-width: ${nameWidth};`}">
-                                    <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.4rem' : isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; word-wrap: break-word; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'};">${nextName}</h3>
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '6px 8px' : '10px 12px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); flex: 1; min-width: 0; max-width: none; width: fit-content;">
+                                    <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.6rem' : isMobile ? '2.2rem' : '2.8rem'}; font-weight: bold; word-wrap: break-word; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'}; white-space: nowrap;">${nextName}</h3>
                                 </div>
                             </div>
                         `;
@@ -2648,8 +2674,8 @@
                         
                         nameElement.innerHTML = `
                             <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
-                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '4px' : '8px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); ${isMobile ? 'flex: 1; min-width: 49%; max-width: 50%;' : `min-width: ${singleNameWidth}; max-width: ${singleNameWidth};`}">
-                                    <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.4rem' : isMobile ? '1.8rem' : '2.2rem'}; font-weight: bold; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'};">${currentName}</h3>
+                                <div style="text-align: center; display: inline-block; padding: ${isMobile && window.isLandscape ? '8px' : isMobile ? '6px 8px' : '10px 12px'}; border: 2px solid #ddd; border-radius: ${isMobile && window.isLandscape ? '8px' : '16px'}; background: rgba(255,255,255,0.1); width: fit-content;">
+                                    <h3 style="margin: 0; color: white; font-size: ${isMobile && window.isLandscape ? '1.6rem' : isMobile ? '2.2rem' : '2.8rem'}; font-weight: bold; line-height: ${isMobile && window.isLandscape ? '1.2' : '1.5'}; white-space: nowrap;">${currentName}</h3>
                                 </div>
                             </div>
                         `;
