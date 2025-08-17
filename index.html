@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Memoria de Imágenes - Con Autoavance</title>
     <style>
         * {
@@ -577,6 +580,311 @@
                 min-height: 35px;
             }
         }
+        
+        /* CSS Responsive para Móviles */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                min-height: 100vh;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+            
+            .game-container {
+                padding: 20px;
+                margin: 0;
+                border-radius: 15px;
+                max-width: 100%;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .title {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+            
+            .phase-title {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+            }
+            
+            .section {
+                margin: 15px 0;
+                padding: 15px;
+                border-radius: 10px;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+            }
+            
+            .image-display, .name-display {
+                margin: 20px 0;
+                padding: 15px;
+                min-height: 300px;
+                border-radius: 8px;
+            }
+            
+            .image-display img {
+                max-height: 250px;
+            }
+            
+            .name-card {
+                padding: 25px;
+                min-width: auto;
+                width: 100%;
+            }
+            
+            .name-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .button {
+                font-size: 0.9rem;
+                padding: 12px 20px;
+                margin: 5px;
+                min-height: 44px; /* Tamaño mínimo para touch */
+            }
+            
+            .timer-config {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .timer-option {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .timer-option label {
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+            
+            .timer-select {
+                width: 100%;
+                padding: 10px;
+                font-size: 1rem;
+            }
+            
+            .image-preview {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 8px;
+            }
+            
+            .image-preview img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 10px;
+            }
+            
+            .gallery-grid img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .time-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .time-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 3px;
+            }
+            
+            .time-item strong {
+                font-size: 0.9rem;
+            }
+            
+            .time-item span {
+                font-size: 0.9rem;
+            }
+            
+            .timer {
+                font-size: 1rem;
+                padding: 10px;
+                margin: 15px 0;
+            }
+            
+            .progress-indicator {
+                font-size: 0.9rem;
+                margin: 10px 0;
+            }
+            
+            .fullscreen-button {
+                font-size: 0.9rem;
+                padding: 8px;
+                top: 5px;
+                right: 5px;
+                min-width: 40px;
+                min-height: 40px;
+            }
+            
+            /* Ajustes específicos para modo dos en dos en móviles */
+            .image-display div[style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 15px !important;
+            }
+            
+            .image-display div[style*="display: flex"] > div {
+                flex: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                border: 2px solid transparent !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                padding: 12px !important;
+            }
+            
+            .image-display div[style*="display: flex"] img {
+                max-height: 200px !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+            }
+            
+            .name-display div[style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 15px !important;
+            }
+            
+            .name-display div[style*="display: flex"] > div {
+                flex: none !important;
+                width: auto !important;
+                max-width: none !important;
+                border: 2px solid #ddd !important;
+                background: rgba(255,255,255,0.1) !important;
+                box-shadow: none !important;
+                padding: 12px !important;
+            }
+            
+            .name-display div[style*="display: flex"] h3 {
+                color: white !important;
+            }
+            
+            .image-display div[style*="display: flex"] p {
+                color: white !important;
+            }
+            
+            /* Ocultar texto de ayuda en móviles */
+            p[style*="font-size: 0.9rem"] {
+                font-size: 0.8rem !important;
+                margin-top: 8px !important;
+            }
+            
+            /* Ajustes para navegación en móviles */
+            div[style*="margin: 20px 0"] {
+                margin: 15px 0 !important;
+            }
+            
+            div[style*="margin: 20px 0"] .button {
+                margin: 3px;
+                min-width: 80px;
+            }
+        }
+        
+        /* CSS para pantallas muy pequeñas */
+        @media (max-width: 480px) {
+            .game-container {
+                padding: 15px;
+            }
+            
+            .title {
+                font-size: 1.5rem;
+            }
+            
+            .phase-title {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 12px;
+            }
+            
+            .button {
+                font-size: 0.85rem;
+                padding: 10px 16px;
+            }
+            
+            .image-display, .name-display {
+                min-height: 250px;
+                padding: 12px;
+            }
+            
+            .name-card {
+                padding: 20px;
+            }
+            
+            .name-card h3 {
+                font-size: 1.1rem;
+            }
+            
+            .timer {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+            
+            .progress-indicator {
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Mostrar/ocultar texto de ayuda según dispositivo */
+        @media (max-width: 768px) {
+            .desktop-help {
+                display: none !important;
+            }
+            .mobile-help {
+                display: inline !important;
+            }
+        }
+        
+        /* Mantener cuadrados en modo dos en dos pero sin colores azul/verde */
+        .image-display div[style*="display: flex"] > div {
+            border: 2px solid transparent !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            padding: 16px !important;
+            max-width: 45% !important;
+        }
+        
+        .image-display div[style*="display: flex"] img {
+            border-radius: 0 !important;
+        }
+        
+        .image-display div[style*="display: flex"] p {
+            color: white !important;
+        }
+        
+        .name-display div[style*="display: flex"] > div {
+            border: 2px solid #ddd !important;
+            background: rgba(255,255,255,0.1) !important;
+            box-shadow: none !important;
+            padding: 16px !important;
+            width: auto !important;
+            max-width: none !important;
+        }
+        
+        .name-display div[style*="display: flex"] h3 {
+            color: white !important;
+        }
+        
+        @media (min-width: 769px) {
+            .desktop-help {
+                display: inline !important;
+            }
+            .mobile-help {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -636,6 +944,45 @@
                 </div>
             </div>
             
+            <!-- Configuración de Visualización -->
+            <div class="section">
+                <h3 class="section-title">Configuración de Visualización</h3>
+                <p>Selecciona cómo quieres que se muestren las imágenes:</p>
+                <div class="timer-config">
+                    <div class="timer-option">
+                        <input type="radio" id="single-display" name="display-mode" value="single" checked>
+                        <label for="single-display">Mostrar de una en una</label>
+                    </div>
+                    <div class="timer-option">
+                        <input type="radio" id="double-display" name="display-mode" value="double">
+                        <label for="double-display">Mostrar de dos en dos</label>
+                    </div>
+                </div>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
+                    💡 <strong>Nota:</strong> En modo "dos en dos", se mostrarán dos nombres o dos imágenes por página.
+                </p>
+            </div>
+            
+            <!-- Configuración de Fases para Modo Manual -->
+            <div class="section" id="manual-phases-config" style="display: none;">
+                <h3 class="section-title">Configuración de Fases (Modo Manual)</h3>
+                <p>Selecciona qué fases quieres que se muestren en el modo manual:</p>
+                <div class="timer-config">
+                    <div class="timer-option">
+                        <input type="checkbox" id="show-name-phase" name="manual-phases" value="name" checked>
+                        <label for="show-name-phase">Mostrar fase de nombre de imagen</label>
+                    </div>
+                    <div class="timer-option">
+                        <input type="checkbox" id="show-image-phase" name="manual-phases" value="image" checked>
+                        <label for="show-image-phase">Mostrar fase de imagen</label>
+                    </div>
+                </div>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
+                    💡 <strong>Nota:</strong> Debes seleccionar al menos una fase. Si seleccionas ambas, 
+                    se mostrará primero el nombre y luego la imagen.
+                </p>
+            </div>
+            
             <!-- Configuración de Duración del Juego -->
             <div class="section">
                 <h3 class="section-title">Duración del Juego</h3>
@@ -659,11 +1006,13 @@
                 <div class="timer-config">
                     <div class="timer-option">
                         <label for="name-auto-advance-time">Tiempo para nombre de imagen (segundos):</label>
-                        <input type="number" id="name-auto-advance-time" class="timer-select" min="0.1" max="60" step="0.1" value="" placeholder="1.2">
+                        <input type="number" id="name-auto-advance-time" class="timer-select" min="0" max="60" step="0.1" value="" placeholder="1.2">
+                        <small style="color: #666; font-size: 0.8rem;">(0 = desactivar esta fase)</small>
                     </div>
                     <div class="timer-option">
                         <label for="image-auto-advance-time">Tiempo para imagen (segundos):</label>
-                        <input type="number" id="image-auto-advance-time" class="timer-select" min="0.1" max="60" step="0.1" value="" placeholder="0.4">
+                        <input type="number" id="image-auto-advance-time" class="timer-select" min="0" max="60" step="0.1" value="" placeholder="0.4">
+                        <small style="color: #666; font-size: 0.8rem;">(0 = desactivar esta fase)</small>
                     </div>
                 </div>
             </div>
@@ -712,7 +1061,10 @@
             </div>
             
             <button class="button" id="start-game-btn" onclick="startGame()" disabled>Comenzar Juego</button>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">💡 Presiona <strong>F11</strong> o usa el botón ⛶ en la esquina superior derecha para pantalla completa</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 15px;" id="help-text">
+                💡 <span class="desktop-help">Presiona <strong>F11</strong> o usa el botón ⛶ en la esquina superior derecha para pantalla completa</span>
+                <span class="mobile-help" style="display: none;">Usa el botón ⛶ en la esquina superior derecha para pantalla completa</span>
+            </p>
         </div>
 
         <!-- Fase de Preparación (NOMBRE) -->
@@ -786,6 +1138,69 @@
         let timerInterval;
         let gameMode = 'auto-advance'; // 'auto-advance' o 'manual'
         let isPreparationPhase = true;
+        
+        // Variables para configuración del modo manual
+        let showNamePhase = true;
+        let showImagePhase = true;
+        
+        // Variables para configuración de visualización
+        let displayMode = 'single'; // 'single' o 'double'
+        
+        // Detectar si es dispositivo móvil
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+        
+        // Función para manejar cambios de orientación en móviles
+        function handleOrientationChange() {
+            if (isMobile) {
+                // Forzar el reflow del layout
+                document.body.style.display = 'none';
+                document.body.offsetHeight; // Trigger reflow
+                document.body.style.display = '';
+                
+                // Actualizar la visualización si el juego está activo
+                if (gameState !== 'setup') {
+                    if (isPreparationPhase) {
+                        updatePreparationDisplay();
+                    } else {
+                        updateDisplay();
+                    }
+                }
+            }
+        }
+        
+        // Event listener para cambios de orientación
+        window.addEventListener('orientationchange', handleOrientationChange);
+        window.addEventListener('resize', handleOrientationChange);
+        
+        // Función para mostrar texto de ayuda apropiado según el dispositivo
+        function updateHelpText() {
+            const desktopHelp = document.querySelector('.desktop-help');
+            const mobileHelp = document.querySelector('.mobile-help');
+            
+            if (isMobile) {
+                if (desktopHelp) desktopHelp.style.display = 'none';
+                if (mobileHelp) mobileHelp.style.display = 'inline';
+            } else {
+                if (desktopHelp) desktopHelp.style.display = 'inline';
+                if (mobileHelp) mobileHelp.style.display = 'none';
+            }
+        }
+        
+        // Ejecutar al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            updateHelpText();
+            
+            // Agregar event listeners para los botones de finalizar partida
+            const finishButtons = document.querySelectorAll('.finish-button');
+            finishButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Botón Finalizar Partida clickeado');
+                    alert('Botón Finalizar Partida funcionando');
+                    finishGame();
+                });
+            });
+        });
         
         // Variables para el sistema de duración
         let durationMode = 'time-limit'; // 'time-limit' o 'until-end'
@@ -902,6 +1317,7 @@
             if (this.checked) {
                 gameMode = 'auto-advance';
                 document.getElementById('auto-advance-config').style.display = 'block';
+                document.getElementById('manual-phases-config').style.display = 'none';
                 updateSummary();
                 validateGameStart();
             }
@@ -911,6 +1327,7 @@
             if (this.checked) {
                 gameMode = 'manual';
                 document.getElementById('auto-advance-config').style.display = 'none';
+                document.getElementById('manual-phases-config').style.display = 'block';
                 updateSummary();
                 validateGameStart();
             }
@@ -934,6 +1351,50 @@
                 document.getElementById('cycles-info').style.display = 'none';
                 updateSummary();
                 validateGameStart();
+            }
+        });
+        
+        // Configurar fases del modo manual
+        document.getElementById('show-name-phase').addEventListener('change', function() {
+            showNamePhase = this.checked;
+            validateManualPhases();
+            updateSummary();
+            validateGameStart();
+        });
+        
+        document.getElementById('show-image-phase').addEventListener('change', function() {
+            showImagePhase = this.checked;
+            validateManualPhases();
+            updateSummary();
+            validateGameStart();
+        });
+        
+        // Configurar modo de visualización
+        document.getElementById('single-display').addEventListener('change', function() {
+            if (this.checked) {
+                displayMode = 'single';
+                updateSummary();
+                // Limpiar contenido de imagen si el juego está activo
+                if (gameState !== 'setup') {
+                    const imageContainer = document.getElementById('image-display');
+                    if (imageContainer) {
+                        imageContainer.innerHTML = '<img id="current-image" src="" alt="Imagen para memorizar">';
+                    }
+                }
+            }
+        });
+        
+        document.getElementById('double-display').addEventListener('change', function() {
+            if (this.checked) {
+                displayMode = 'double';
+                updateSummary();
+                // Limpiar contenido de imagen si el juego está activo
+                if (gameState !== 'setup') {
+                    const imageContainer = document.getElementById('image-display');
+                    if (imageContainer) {
+                        imageContainer.innerHTML = '<img id="current-image" src="" alt="Imagen para memorizar">';
+                    }
+                }
             }
         });
         
@@ -1015,15 +1476,29 @@
                 const totalTime = images.length * timePerImage;
                 document.getElementById('summary-images').textContent = `Imágenes: ${images.length}`;
                 
-                // Manejar campos vacíos en el resumen
-                const nameTimeText = nameAutoAdvanceTime > 0 ? `${nameAutoAdvanceTime}s` : '(escribe tiempo)';
-                const imageTimeText = imageAutoAdvanceTime > 0 ? `${imageAutoAdvanceTime}s` : '(escribe tiempo)';
-                document.getElementById('summary-timer').textContent = `Autoavance: ${nameTimeText} (nombre) + ${imageTimeText} (imagen)`;
+                // Manejar campos con valor 0 o vacíos en el resumen
+                const nameTimeText = nameAutoAdvanceTime > 0 ? `${nameAutoAdvanceTime}s` : 'desactivado';
+                const imageTimeText = imageAutoAdvanceTime > 0 ? `${imageAutoAdvanceTime}s` : 'desactivado';
+                const displayText = displayMode === 'double' ? ' - 2x2' : '';
+                document.getElementById('summary-timer').textContent = `Autoavance: ${nameTimeText} (nombre) + ${imageTimeText} (imagen)${displayText}`;
                 
+                // Manejar diferentes combinaciones de tiempos
                 if (nameAutoAdvanceTime > 0 && imageAutoAdvanceTime > 0) {
+                    // Ambos tiempos activos
                     document.getElementById('time-per-image').textContent = `${nameAutoAdvanceTime}s + ${imageAutoAdvanceTime}s`;
-                    
-                    // Actualizar información según el modo de duración
+                } else if (nameAutoAdvanceTime > 0) {
+                    // Solo tiempo de nombre activo
+                    document.getElementById('time-per-image').textContent = `${nameAutoAdvanceTime}s (solo nombre)`;
+                } else if (imageAutoAdvanceTime > 0) {
+                    // Solo tiempo de imagen activo
+                    document.getElementById('time-per-image').textContent = `${imageAutoAdvanceTime}s (solo imagen)`;
+                } else {
+                    // Ningún tiempo activo
+                    document.getElementById('time-per-image').textContent = `(configura al menos un tiempo)`;
+                }
+                
+                // Actualizar información según el modo de duración
+                if (timePerImage > 0) {
                     if (durationMode === 'time-limit') {
                         if (totalGameMinutes > 0) {
                             const estimatedCycles = Math.floor(totalGameSeconds / totalTime);
@@ -1041,14 +1516,24 @@
                         document.getElementById('estimated-cycles').textContent = `1 ciclo`;
                     }
                 } else {
-                    document.getElementById('summary-total').textContent = `Duración: (configura los tiempos)`;
-                    document.getElementById('total-game-time').textContent = `(configura los tiempos)`;
-                    document.getElementById('time-per-image').textContent = `${nameTimeText} + ${imageTimeText}`;
+                    document.getElementById('summary-total').textContent = `Duración: (configura al menos un tiempo)`;
+                    document.getElementById('total-game-time').textContent = `(configura al menos un tiempo)`;
                     document.getElementById('estimated-cycles').textContent = `(calculando...)`;
                 }
             } else {
                 document.getElementById('summary-images').textContent = `Imágenes: ${images.length}`;
-                document.getElementById('summary-timer').textContent = `Modo: Manual (navegación libre)`;
+                
+                // Mostrar información de las fases seleccionadas en modo manual
+                let phasesText = '';
+                if (showNamePhase && showImagePhase) {
+                    phasesText = 'Nombre + Imagen';
+                } else if (showNamePhase) {
+                    phasesText = 'Solo Nombre';
+                } else if (showImagePhase) {
+                    phasesText = 'Solo Imagen';
+                }
+                const displayText = displayMode === 'double' ? ' - 2x2' : '';
+                document.getElementById('summary-timer').textContent = `Modo: Manual (${phasesText}${displayText})`;
                 
                 if (durationMode === 'time-limit') {
                     if (totalGameMinutes > 0) {
@@ -1210,6 +1695,7 @@
             
             // Reiniciar timer
             if (gameMode === 'auto-advance') {
+                phaseStartTime = 0; // Reiniciar phaseStartTime antes de iniciar el timer
                 startTimer();
             } else if (durationMode === 'time-limit') {
                 startManualTimer();
@@ -1250,6 +1736,92 @@
             }, 1000); // Actualizar cada segundo
         }
         
+        // Función para manejar la finalización de ciclos
+        function handleCycleCompletion() {
+            cyclesCompleted++;
+            console.log(`Ciclo ${cyclesCompleted} completado`);
+            
+            // Verificar si debe continuar según el modo de duración
+            if (durationMode === 'time-limit') {
+                const elapsedTime = ((Date.now() - gameStartTime) - totalPausedTime) / 1000;
+                if (elapsedTime >= totalGameSeconds) {
+                    // Tiempo agotado
+                    finishGame();
+                    return;
+                }
+            } else if (durationMode === 'until-end') {
+                // En modo "hasta que se acaben las imágenes", terminar después del primer ciclo
+                finishGame();
+                return;
+            }
+            
+            // En modo manual con "hasta que se acaben las imágenes", también terminar después del primer ciclo
+            if (gameMode === 'manual' && durationMode === 'until-end') {
+                console.log('Terminando juego en modo manual con until-end');
+                finishGame();
+                return;
+            }
+            
+            // En modo por tiempo, verificar si debe cambiar el orden en modo aleatorio
+            if (durationMode === 'time-limit' && currentGameMode === 'random') {
+                shuffleGameOrder();
+            }
+            
+            // Reiniciar para el siguiente ciclo (solo en modo por tiempo)
+            currentImageIndex = 0;
+            
+            // Determinar la fase inicial según la configuración
+            if (gameMode === 'auto-advance') {
+                isPreparationPhase = nameAutoAdvanceTime > 0;
+            } else {
+                // En modo manual, determinar según las fases seleccionadas
+                if (showNamePhase && showImagePhase) {
+                    isPreparationPhase = true; // Empezar con nombre
+                } else if (showNamePhase) {
+                    isPreparationPhase = true; // Solo nombre
+                } else if (showImagePhase) {
+                    isPreparationPhase = false; // Solo imagen
+                }
+            }
+            
+            if (isPreparationPhase) {
+                document.getElementById('memorization-phase').classList.add('hidden');
+                document.getElementById('preparation-phase').classList.remove('hidden');
+                document.getElementById('mem-navigation').style.display = 'none';
+                document.getElementById('prep-navigation').style.display = 'block';
+                updatePreparationDisplay();
+                updateNavigationButtons();
+                
+                // Mostrar botón de pausa y reiniciar fase
+                document.getElementById('prep-pause-btn').style.display = 'inline-block';
+            } else {
+                document.getElementById('preparation-phase').classList.add('hidden');
+                document.getElementById('memorization-phase').classList.remove('hidden');
+                document.getElementById('prep-navigation').style.display = 'none';
+                document.getElementById('mem-navigation').style.display = 'block';
+                updateDisplay();
+                updateNavigationButtons();
+                
+                // Mostrar botón de pausa y reiniciar fase
+                document.getElementById('mem-pause-btn').style.display = 'inline-block';
+            }
+            
+            // Reiniciar phaseStartTime para el nuevo ciclo
+            phaseStartTime = 0;
+        }
+        
+        // Función para validar las fases del modo manual
+        function validateManualPhases() {
+            const nameCheckbox = document.getElementById('show-name-phase');
+            const imageCheckbox = document.getElementById('show-image-phase');
+            
+            // Si ninguna fase está seleccionada, seleccionar automáticamente la fase de imagen
+            if (!showNamePhase && !showImagePhase) {
+                showImagePhase = true;
+                imageCheckbox.checked = true;
+            }
+        }
+        
         // Función para validar si el juego puede comenzar
         function validateGameStart() {
             const startButton = document.getElementById('start-game-btn');
@@ -1258,10 +1830,16 @@
             // Verificar si se han cargado imágenes
             const hasImages = images.length > 0;
             
-            // Verificar si los campos de tiempo están completos en modo autoavance
+            // Verificar si al menos uno de los campos de tiempo está configurado en modo autoavance
             let hasValidTimes = true;
             if (gameMode === 'auto-advance') {
-                hasValidTimes = nameAutoAdvanceTime > 0 && imageAutoAdvanceTime > 0;
+                hasValidTimes = nameAutoAdvanceTime > 0 || imageAutoAdvanceTime > 0;
+            }
+            
+            // Verificar si al menos una fase está seleccionada en modo manual
+            let hasValidPhases = true;
+            if (gameMode === 'manual') {
+                hasValidPhases = showNamePhase || showImagePhase;
             }
             
             // Verificar si el tiempo total está configurado en modo por tiempo
@@ -1270,7 +1848,7 @@
                 hasValidDuration = totalGameMinutes > 0;
             }
             
-            const canStart = hasImages && hasValidTimes && hasValidDuration;
+            const canStart = hasImages && hasValidTimes && hasValidPhases && hasValidDuration;
             
             // Aplicar estilos visuales al botón
             if (canStart) {
@@ -1535,24 +2113,50 @@
             if (isPreparationPhase) {
                 // Si estamos en fase de nombre, retroceder a la imagen anterior
                 if (currentImageIndex > 0) {
-                    currentImageIndex--;
-                    isPreparationPhase = false;
-                    document.getElementById('preparation-phase').classList.add('hidden');
-                    document.getElementById('memorization-phase').classList.remove('hidden');
-                    document.getElementById('prep-navigation').style.display = 'none';
-                    document.getElementById('mem-navigation').style.display = 'block';
-                    updateDisplay();
-                    updateNavigationButtons();
+                    if (displayMode === 'single') {
+                        currentImageIndex--;
+                    } else {
+                        // En modo de dos en dos, retroceder de dos en dos
+                        currentImageIndex = Math.max(0, currentImageIndex - 2);
+                    }
+                    
+                    if (showImagePhase) {
+                        isPreparationPhase = false;
+                        document.getElementById('preparation-phase').classList.add('hidden');
+                        document.getElementById('memorization-phase').classList.remove('hidden');
+                        document.getElementById('prep-navigation').style.display = 'none';
+                        document.getElementById('mem-navigation').style.display = 'block';
+                        updateDisplay();
+                        updateNavigationButtons();
+                    } else {
+                        // Si no se muestra imagen, retroceder al nombre anterior
+                        updatePreparationDisplay();
+                        updateNavigationButtons();
+                    }
                 }
             } else {
                 // Si estamos en fase de imagen, retroceder al nombre
-                isPreparationPhase = true;
-                document.getElementById('memorization-phase').classList.add('hidden');
-                document.getElementById('preparation-phase').classList.remove('hidden');
-                document.getElementById('mem-navigation').style.display = 'none';
-                document.getElementById('prep-navigation').style.display = 'block';
-                updatePreparationDisplay();
-                updateNavigationButtons();
+                if (showNamePhase) {
+                    isPreparationPhase = true;
+                    document.getElementById('memorization-phase').classList.add('hidden');
+                    document.getElementById('preparation-phase').classList.remove('hidden');
+                    document.getElementById('mem-navigation').style.display = 'none';
+                    document.getElementById('prep-navigation').style.display = 'block';
+                    updatePreparationDisplay();
+                    updateNavigationButtons();
+                } else {
+                    // Si no se muestra nombre, retroceder a la imagen anterior
+                    if (currentImageIndex > 0) {
+                        if (displayMode === 'single') {
+                            currentImageIndex--;
+                        } else {
+                            // En modo de dos en dos, retroceder de dos en dos
+                            currentImageIndex = Math.max(0, currentImageIndex - 2);
+                        }
+                        updateDisplay();
+                        updateNavigationButtons();
+                    }
+                }
             }
         }
 
@@ -1568,69 +2172,72 @@
             }
             
             if (isPreparationPhase) {
-                // Si estamos en fase de nombre, avanzar a la imagen
-                isPreparationPhase = false;
-                document.getElementById('preparation-phase').classList.add('hidden');
-                document.getElementById('memorization-phase').classList.remove('hidden');
-                document.getElementById('prep-navigation').style.display = 'none';
-                document.getElementById('mem-navigation').style.display = 'block';
-                updateDisplay();
-                updateNavigationButtons();
-                
-                // Mostrar botón de pausa y reiniciar fase
-                document.getElementById('mem-pause-btn').style.display = 'inline-block';
-                phaseStartTime = 0;
-            } else {
-                // Si estamos en fase de imagen, avanzar al siguiente nombre
-                currentImageIndex++;
-                totalImagesSeen++;
-                
-                if (currentImageIndex < gameImageOrder.length) {
-                    isPreparationPhase = true;
-                    document.getElementById('memorization-phase').classList.add('hidden');
-                    document.getElementById('preparation-phase').classList.remove('hidden');
-                    document.getElementById('mem-navigation').style.display = 'none';
-                    document.getElementById('prep-navigation').style.display = 'block';
-                    updatePreparationDisplay();
-                    updateNavigationButtons();
-                } else {
-                    // Ciclo completado
-                    cyclesCompleted++;
-                    console.log(`Ciclo ${cyclesCompleted} completado`);
-                    
-                    // Verificar si debe continuar según el modo de duración
-                    if (durationMode === 'time-limit') {
-                        const elapsedTime = ((Date.now() - gameStartTime) - totalPausedTime) / 1000;
-                        if (elapsedTime >= totalGameSeconds) {
-                            // Tiempo agotado
-                            finishGame();
-                            return;
-                        }
-                    } else if (durationMode === 'until-end') {
-                        // En modo "hasta que se acaben las imágenes", terminar después del primer ciclo
-                        finishGame();
-                        return;
-                    }
-                    
-                    // En modo por tiempo, verificar si debe cambiar el orden en modo aleatorio
-                    if (durationMode === 'time-limit' && currentGameMode === 'random') {
-                        shuffleGameOrder();
-                    }
-                    
-                    // Reiniciar para el siguiente ciclo (solo en modo por tiempo)
-                    currentImageIndex = 0;
-                    isPreparationPhase = true;
-                    
-                    document.getElementById('memorization-phase').classList.add('hidden');
-                    document.getElementById('preparation-phase').classList.remove('hidden');
-                    document.getElementById('mem-navigation').style.display = 'none';
-                    document.getElementById('prep-navigation').style.display = 'block';
-                    updatePreparationDisplay();
+                // Si estamos en fase de nombre, verificar si debemos mostrar la imagen
+                if (showImagePhase) {
+                    // Avanzar a la imagen
+                    isPreparationPhase = false;
+                    document.getElementById('preparation-phase').classList.add('hidden');
+                    document.getElementById('memorization-phase').classList.remove('hidden');
+                    document.getElementById('prep-navigation').style.display = 'none';
+                    document.getElementById('mem-navigation').style.display = 'block';
+                    updateDisplay();
                     updateNavigationButtons();
                     
                     // Mostrar botón de pausa y reiniciar fase
-                    document.getElementById('prep-pause-btn').style.display = 'inline-block';
+                    document.getElementById('mem-pause-btn').style.display = 'inline-block';
                     phaseStartTime = 0;
+                } else {
+                    // Si no se muestra imagen, avanzar directamente al siguiente nombre
+                    if (displayMode === 'single') {
+                        currentImageIndex++;
+                        totalImagesSeen++;
+                    } else {
+                        // En modo de dos en dos, avanzar de dos en dos
+                        currentImageIndex += 2;
+                        totalImagesSeen += 2;
+                    }
+                    
+                    console.log(`Avanzando a siguiente nombre. Índice: ${currentImageIndex}, Total: ${gameImageOrder.length}`);
+                    
+                    if (currentImageIndex < gameImageOrder.length) {
+                        updatePreparationDisplay();
+                        updateNavigationButtons();
+                    } else {
+                        // Ciclo completado
+                        console.log('Ciclo completado desde fase de nombre (solo nombre)');
+                        handleCycleCompletion();
+                    }
+                }
+            } else {
+                // Si estamos en fase de imagen, avanzar al siguiente nombre
+                if (displayMode === 'single') {
+                    currentImageIndex++;
+                    totalImagesSeen++;
+                } else {
+                    // En modo de dos en dos, avanzar de dos en dos
+                    currentImageIndex += 2;
+                    totalImagesSeen += 2;
+                }
+                
+                if (currentImageIndex < gameImageOrder.length) {
+                    // Verificar si debemos mostrar el nombre
+                    if (showNamePhase) {
+                        isPreparationPhase = true;
+                        document.getElementById('memorization-phase').classList.add('hidden');
+                        document.getElementById('preparation-phase').classList.remove('hidden');
+                        document.getElementById('mem-navigation').style.display = 'none';
+                        document.getElementById('prep-navigation').style.display = 'block';
+                        updatePreparationDisplay();
+                        updateNavigationButtons();
+                    } else {
+                        // Si no se muestra nombre, avanzar directamente a la siguiente imagen
+                        updateDisplay();
+                        updateNavigationButtons();
+                    }
+                } else {
+                    // Ciclo completado
+                    console.log('Ciclo completado desde fase de imagen');
+                    handleCycleCompletion();
                 }
             }
         }
@@ -1645,11 +2252,35 @@
                 document.getElementById('mem-next-btn');
             
             if (prevBtn && nextBtn) {
-                // En modo manual, el botón anterior se deshabilita solo en la primera imagen y fase de nombre
-                prevBtn.disabled = (currentImageIndex === 0 && isPreparationPhase);
-                
-                // El botón siguiente se habilita siempre, excepto en la última imagen y fase de imagen
-                nextBtn.disabled = (currentImageIndex >= gameImageOrder.length - 1 && !isPreparationPhase);
+                if (gameMode === 'manual') {
+                    // En modo manual, considerar la configuración de fases
+                    if (isPreparationPhase) {
+                        // Fase de nombre
+                        prevBtn.disabled = (currentImageIndex === 0);
+                        // Si solo se muestra nombre, deshabilitar en la última imagen
+                        if (showNamePhase && !showImagePhase) {
+                            if (displayMode === 'single') {
+                                nextBtn.disabled = (currentImageIndex >= gameImageOrder.length - 1);
+                            } else {
+                                nextBtn.disabled = (currentImageIndex >= gameImageOrder.length - 2);
+                            }
+                        } else {
+                            nextBtn.disabled = false; // Siempre se puede avanzar desde nombre
+                        }
+                    } else {
+                        // Fase de imagen
+                        prevBtn.disabled = false; // Siempre se puede retroceder desde imagen
+                        if (displayMode === 'single') {
+                            nextBtn.disabled = (currentImageIndex >= gameImageOrder.length - 1);
+                        } else {
+                            nextBtn.disabled = (currentImageIndex >= gameImageOrder.length - 2);
+                        }
+                    }
+                } else {
+                    // En modo autoavance, comportamiento original
+                    prevBtn.disabled = (currentImageIndex === 0 && isPreparationPhase);
+                    nextBtn.disabled = (currentImageIndex >= gameImageOrder.length - 1 && !isPreparationPhase);
+                }
             }
         }
 
@@ -1661,16 +2292,10 @@
                 return;
             }
             
-            // Validar que los campos de tiempo no estén vacíos en modo autoavance
+            // Validar que al menos uno de los campos de tiempo esté configurado en modo autoavance
             if (gameMode === 'auto-advance') {
-                if (nameAutoAdvanceTime <= 0) {
-                    alert('Por favor, escribe el tiempo para nombre de imagen antes de comenzar el juego.');
-                    document.getElementById('name-auto-advance-time').focus();
-                    return;
-                }
-                if (imageAutoAdvanceTime <= 0) {
-                    alert('Por favor, escribe el tiempo para imagen antes de comenzar el juego.');
-                    document.getElementById('image-auto-advance-time').focus();
+                if (nameAutoAdvanceTime <= 0 && imageAutoAdvanceTime <= 0) {
+                    alert('Por favor, configura al menos un tiempo (nombre de imagen o imagen) antes de comenzar el juego.');
                     return;
                 }
             }
@@ -1684,8 +2309,25 @@
             
             // Inicializar variables del juego
             currentImageIndex = 0;
-            isPreparationPhase = true;
-            gameState = 'preparation';
+            
+            // Determinar la fase inicial según el modo de juego
+            if (gameMode === 'auto-advance') {
+                // Si el tiempo de nombre es 0, empezar directamente en la fase de imagen
+                isPreparationPhase = nameAutoAdvanceTime > 0;
+                gameState = isPreparationPhase ? 'preparation' : 'memorization';
+            } else {
+                // En modo manual, determinar según las fases seleccionadas
+                if (showNamePhase && showImagePhase) {
+                    isPreparationPhase = true; // Empezar con nombre
+                    gameState = 'preparation';
+                } else if (showNamePhase) {
+                    isPreparationPhase = true; // Solo nombre
+                    gameState = 'preparation';
+                } else if (showImagePhase) {
+                    isPreparationPhase = false; // Solo imagen
+                    gameState = 'memorization';
+                }
+            }
             cyclesCompleted = 0;
             totalImagesSeen = 0;
             gameStartTime = Date.now();
@@ -1706,13 +2348,24 @@
             }
             
             document.getElementById('setup-phase').classList.add('hidden');
-            document.getElementById('preparation-phase').classList.remove('hidden');
             
-            updatePreparationDisplay();
+            if (isPreparationPhase) {
+                document.getElementById('preparation-phase').classList.remove('hidden');
+                updatePreparationDisplay();
+            } else {
+                document.getElementById('memorization-phase').classList.remove('hidden');
+                updateDisplay();
+            }
             
             // Mostrar/ocultar navegación según el modo
             if (gameMode === 'manual') {
-                document.getElementById('prep-navigation').style.display = 'block';
+                if (isPreparationPhase) {
+                    document.getElementById('prep-navigation').style.display = 'block';
+                    document.getElementById('mem-navigation').style.display = 'none';
+                } else {
+                    document.getElementById('prep-navigation').style.display = 'none';
+                    document.getElementById('mem-navigation').style.display = 'block';
+                }
                 updateNavigationButtons();
                 // Configurar captura global de teclas
                 window.cleanupKeyCapture = setupGlobalKeyCapture();
@@ -1723,11 +2376,18 @@
                 }
             } else {
                 document.getElementById('prep-navigation').style.display = 'none';
+                document.getElementById('mem-navigation').style.display = 'none';
+                // Reiniciar phaseStartTime antes de iniciar el timer
+                phaseStartTime = 0;
                 startTimer();
             }
             
-            // Mostrar botón de pausa
-            document.getElementById('prep-pause-btn').style.display = 'inline-block';
+            // Mostrar botón de pausa según la fase
+            if (isPreparationPhase) {
+                document.getElementById('prep-pause-btn').style.display = 'inline-block';
+            } else {
+                document.getElementById('mem-pause-btn').style.display = 'inline-block';
+            }
             
             // Mostrar información del orden según el modo
             const orderInfoElements = document.querySelectorAll('#order-info');
@@ -1746,38 +2406,141 @@
             const nameElement = document.getElementById('current-image-name');
             const progress = document.getElementById('prep-progress');
             
-            if (currentImageIndex >= 0 && currentImageIndex < gameImageNames.length && currentImageIndex < gameImageOrder.length) {
-                const currentName = gameImageNames[currentImageIndex];
-                nameElement.textContent = currentName;
-                progress.textContent = `Nombre ${currentImageIndex + 1} de ${gameImageNames.length}`;
+            if (displayMode === 'single') {
+                // Modo de una en una
+                if (currentImageIndex >= 0 && currentImageIndex < gameImageNames.length && currentImageIndex < gameImageOrder.length) {
+                    const currentName = gameImageNames[currentImageIndex];
+                    nameElement.textContent = currentName;
+                    progress.textContent = `Nombre ${currentImageIndex + 1} de ${gameImageNames.length}`;
+                } else {
+                    // Manejar el caso cuando el índice está fuera de rango
+                    nameElement.textContent = 'Error: Índice fuera de rango';
+                    progress.textContent = 'Error';
+                    // Reiniciar el índice si es necesario
+                    if (currentImageIndex >= gameImageNames.length) {
+                        currentImageIndex = 0;
+                    }
+                }
             } else {
-                // Manejar el caso cuando el índice está fuera de rango
-                nameElement.textContent = 'Error: Índice fuera de rango';
-                progress.textContent = 'Error';
-                // Reiniciar el índice si es necesario
-                if (currentImageIndex >= gameImageNames.length) {
-                    currentImageIndex = 0;
+                // Modo de dos en dos
+                if (currentImageIndex >= 0 && currentImageIndex < gameImageNames.length) {
+                    const currentName = gameImageNames[currentImageIndex];
+                    const nextIndex = currentImageIndex + 1;
+                    
+                    if (nextIndex < gameImageNames.length) {
+                        const nextName = gameImageNames[nextIndex];
+                        // Crear dos cuadros separados para los nombres
+                        nameElement.innerHTML = `
+                            <div style="display: flex; justify-content: center; gap: 10px; align-items: center; height: 100%; width: 100%; flex-wrap: wrap;">
+                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1);">
+                                    <h3 style="margin: 0; color: white; font-size: 2.2rem; font-weight: bold; word-wrap: break-word;">${currentName}</h3>
+                                </div>
+                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1);">
+                                    <h3 style="margin: 0; color: white; font-size: 2.2rem; font-weight: bold; word-wrap: break-word;">${nextName}</h3>
+                                </div>
+                            </div>
+                        `;
+                        progress.textContent = `Nombres ${currentImageIndex + 1}-${nextIndex + 1} de ${gameImageNames.length}`;
+                    } else {
+                        // Última imagen sola
+                        nameElement.innerHTML = `
+                            <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
+                                <div style="text-align: center; display: inline-block; padding: 16px; border: 2px solid #ddd; border-radius: 16px; background: rgba(255,255,255,0.1);">
+                                    <h3 style="margin: 0; color: white; font-size: 2.2rem; font-weight: bold;">${currentName}</h3>
+                                </div>
+                            </div>
+                        `;
+                        progress.textContent = `Nombre ${currentImageIndex + 1} de ${gameImageNames.length}`;
+                    }
+                } else {
+                    // Manejar el caso cuando el índice está fuera de rango
+                    nameElement.textContent = 'Error: Índice fuera de rango';
+                    progress.textContent = 'Error';
+                    // Reiniciar el índice si es necesario
+                    if (currentImageIndex >= gameImageNames.length) {
+                        currentImageIndex = 0;
+                    }
                 }
             }
         }
 
         // Actualizar pantalla de memorización (IMAGEN)
         function updateDisplay() {
+            const imageContainer = document.getElementById('image-display');
             const imageElement = document.getElementById('current-image');
             const progress = document.getElementById('progress');
             
-            if (currentImageIndex >= 0 && currentImageIndex < gameImageOrder.length && currentImageIndex < gameImageNames.length) {
-                const currentImage = gameImageOrder[currentImageIndex];
-                const currentName = gameImageNames[currentImageIndex];
-                imageElement.src = currentImage;
-                progress.textContent = `Imagen ${currentImageIndex + 1} de ${gameImageOrder.length}`;
+            if (displayMode === 'single') {
+                // Modo de una en una
+                if (currentImageIndex >= 0 && currentImageIndex < gameImageOrder.length && currentImageIndex < gameImageNames.length) {
+                    const currentImage = gameImageOrder[currentImageIndex];
+                    const currentName = gameImageNames[currentImageIndex];
+                    // Limpiar el contenedor y usar el elemento img original
+                    imageContainer.innerHTML = '<img id="current-image" src="" alt="Imagen para memorizar">';
+                    const newImageElement = document.getElementById('current-image');
+                    newImageElement.src = currentImage;
+                    progress.textContent = `Imagen ${currentImageIndex + 1} de ${gameImageOrder.length}`;
+                } else {
+                    // Manejar el caso cuando el índice está fuera de rango
+                    imageContainer.innerHTML = '<img id="current-image" src="" alt="Imagen para memorizar">';
+                    progress.textContent = 'Error: Índice fuera de rango';
+                    // Reiniciar el índice si es necesario
+                    if (currentImageIndex >= gameImageOrder.length) {
+                        currentImageIndex = 0;
+                    }
+                }
             } else {
-                // Manejar el caso cuando el índice está fuera de rango
-                imageElement.src = '';
-                progress.textContent = 'Error: Índice fuera de rango';
-                // Reiniciar el índice si es necesario
-                if (currentImageIndex >= gameImageOrder.length) {
-                    currentImageIndex = 0;
+                // Modo de dos en dos
+                if (currentImageIndex >= 0 && currentImageIndex < gameImageOrder.length) {
+                    const currentImage = gameImageOrder[currentImageIndex];
+                    const nextIndex = currentImageIndex + 1;
+                    
+                    console.log('Modo dos en dos - Índice actual:', currentImageIndex);
+                    console.log('Imagen actual:', currentImage);
+                    console.log('Nombre actual:', gameImageNames[currentImageIndex]);
+                    
+                    if (nextIndex < gameImageOrder.length) {
+                        const nextImage = gameImageOrder[nextIndex];
+                        console.log('Siguiente imagen:', nextImage);
+                        console.log('Siguiente nombre:', gameImageNames[nextIndex]);
+                        // Crear una imagen combinada o mostrar ambas
+                        imageContainer.innerHTML = `
+                            <div style="display: flex; justify-content: center; gap: 10px; align-items: center; height: 100%; width: 100%; flex-wrap: wrap;">
+                                <div style="text-align: center; flex: 1; min-width: 200px; max-width: 45%; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
+                                    <div style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 60%;">
+                                        <img src="${currentImage}" style="max-width: 100%; max-height: 50vh; object-fit: contain;">
+                                    </div>
+                                    <p style="margin-top: 10px; font-size: 2.2rem; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[currentImageIndex]}</p>
+                                </div>
+                                <div style="text-align: center; flex: 1; min-width: 200px; max-width: 45%; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent; position: relative;">
+                                    <div style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 60%;">
+                                        <img src="${nextImage}" style="max-width: 100%; max-height: 50vh; object-fit: contain;">
+                                    </div>
+                                    <p style="margin-top: 10px; font-size: 2.2rem; font-weight: bold; word-wrap: break-word; color: white;">${gameImageNames[nextIndex]}</p>
+                                </div>
+                            </div>
+                        `;
+                        progress.textContent = `Imágenes ${currentImageIndex + 1}-${nextIndex + 1} de ${gameImageOrder.length}`;
+                    } else {
+                        // Última imagen sola
+                        imageContainer.innerHTML = `
+                            <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
+                                <div style="text-align: center; max-width: 45%; padding: 16px; border: 2px solid transparent; border-radius: 16px; background: transparent;">
+                                    <img src="${currentImage}" style="max-width: 100%; max-height: 50vh; object-fit: contain;">
+                                    <p style="margin-top: 10px; font-size: 2.2rem; font-weight: bold; color: white;">${gameImageNames[currentImageIndex]}</p>
+                                </div>
+                            </div>
+                        `;
+                        progress.textContent = `Imagen ${currentImageIndex + 1} de ${gameImageOrder.length}`;
+                    }
+                } else {
+                    // Manejar el caso cuando el índice está fuera de rango
+                    imageContainer.innerHTML = '<img id="current-image" src="" alt="Imagen para memorizar">';
+                    progress.textContent = 'Error: Índice fuera de rango';
+                    // Reiniciar el índice si es necesario
+                    if (currentImageIndex >= gameImageOrder.length) {
+                        currentImageIndex = 0;
+                    }
                 }
             }
         }
@@ -1793,7 +2556,17 @@
             }
             
             // Seleccionar el tiempo correcto según la fase
-            const currentTime = isPreparationPhase ? nameAutoAdvanceTime : imageAutoAdvanceTime;
+            let currentTime = isPreparationPhase ? nameAutoAdvanceTime : imageAutoAdvanceTime;
+            
+            // Si el tiempo es 0, avanzar inmediatamente
+            if (currentTime <= 0) {
+                if (isPreparationPhase) {
+                    advanceToMemorization();
+                } else {
+                    advanceToNextImage();
+                }
+                return;
+            }
             
             // Ajustar tiempo de inicio considerando pausas
             if (phaseStartTime === 0) {
@@ -1857,6 +2630,12 @@
                 }
             }
             
+            // Si el tiempo de imagen es 0, saltar directamente a la siguiente imagen
+            if (imageAutoAdvanceTime <= 0) {
+                advanceToNextImage();
+                return;
+            }
+            
             isPreparationPhase = false;
             
             document.getElementById('preparation-phase').classList.add('hidden');
@@ -1873,40 +2652,72 @@
             
             // Mostrar botón de pausa y reiniciar fase
             document.getElementById('mem-pause-btn').style.display = 'inline-block';
-            phaseStartTime = 0;
             
             // Pequeño delay para asegurar transición suave
             setTimeout(() => {
+                phaseStartTime = 0; // Reiniciar phaseStartTime antes de iniciar el timer
                 startTimer(); // Reiniciar timer con el nuevo tiempo
             }, 50);
         }
 
         // Avanzar a la siguiente imagen
         function advanceToNextImage() {
-            currentImageIndex++;
-            totalImagesSeen++;
+            if (displayMode === 'single') {
+                currentImageIndex++;
+                totalImagesSeen++;
+            } else {
+                // En modo de dos en dos, avanzar de dos en dos
+                currentImageIndex += 2;
+                totalImagesSeen += 2;
+            }
             console.log(`Avanzando a siguiente imagen - Nuevo índice: ${currentImageIndex}`);
             
             if (currentImageIndex < gameImageOrder.length) {
-                // Ir a la siguiente imagen (NOMBRE -> IMAGEN)
-                isPreparationPhase = true;
-                
-                document.getElementById('memorization-phase').classList.add('hidden');
-                document.getElementById('preparation-phase').classList.remove('hidden');
-                
-                // Mostrar/ocultar navegación según el modo
-                if (gameMode === 'manual') {
-                    document.getElementById('mem-navigation').style.display = 'none';
-                    document.getElementById('prep-navigation').style.display = 'block';
-                    updateNavigationButtons();
+                // Si el tiempo de nombre es 0, saltar directamente a la imagen
+                if (nameAutoAdvanceTime <= 0) {
+                    isPreparationPhase = false;
+                    document.getElementById('memorization-phase').classList.remove('hidden');
+                    document.getElementById('preparation-phase').classList.add('hidden');
+                    
+                    // Mostrar/ocultar navegación según el modo
+                    if (gameMode === 'manual') {
+                        document.getElementById('mem-navigation').style.display = 'block';
+                        document.getElementById('prep-navigation').style.display = 'none';
+                        updateNavigationButtons();
+                    }
+                    
+                    updateDisplay();
+                    
+                    // Mostrar botón de pausa y reiniciar fase
+                    document.getElementById('mem-pause-btn').style.display = 'inline-block';
+                    phaseStartTime = 0;
+                    
+                    // Pequeño delay para asegurar transición suave
+                    setTimeout(() => {
+                        startTimer(); // Reiniciar timer con el nuevo tiempo
+                    }, 50);
+                } else {
+                    // Ir a la siguiente imagen (NOMBRE -> IMAGEN)
+                    isPreparationPhase = true;
+                    
+                    document.getElementById('memorization-phase').classList.add('hidden');
+                    document.getElementById('preparation-phase').classList.remove('hidden');
+                    
+                    // Mostrar/ocultar navegación según el modo
+                    if (gameMode === 'manual') {
+                        document.getElementById('mem-navigation').style.display = 'none';
+                        document.getElementById('prep-navigation').style.display = 'block';
+                        updateNavigationButtons();
+                    }
+                    
+                    updatePreparationDisplay();
+                    
+                    // Pequeño delay para asegurar transición suave
+                    setTimeout(() => {
+                        phaseStartTime = 0; // Reiniciar phaseStartTime antes de iniciar el timer
+                        startTimer(); // Reiniciar timer con el nuevo tiempo
+                    }, 50);
                 }
-                
-                updatePreparationDisplay();
-                
-                // Pequeño delay para asegurar transición suave
-                setTimeout(() => {
-                    startTimer(); // Reiniciar timer con el nuevo tiempo
-                }, 50);
             } else {
                 // Ciclo completado
                 cyclesCompleted++;
@@ -1933,29 +2744,59 @@
                 
                 // Reiniciar para el siguiente ciclo (solo en modo por tiempo)
                 currentImageIndex = 0;
-                isPreparationPhase = true;
                 
-                document.getElementById('memorization-phase').classList.add('hidden');
-                document.getElementById('preparation-phase').classList.remove('hidden');
-                
-                // Mostrar/ocultar navegación según el modo
-                if (gameMode === 'manual') {
-                    document.getElementById('mem-navigation').style.display = 'none';
-                    document.getElementById('prep-navigation').style.display = 'block';
-                    updateNavigationButtons();
+                // Si el tiempo de nombre es 0, saltar directamente a la imagen
+                if (nameAutoAdvanceTime <= 0) {
+                    isPreparationPhase = false;
+                    document.getElementById('memorization-phase').classList.remove('hidden');
+                    document.getElementById('preparation-phase').classList.add('hidden');
+                    
+                    // Mostrar/ocultar navegación según el modo
+                    if (gameMode === 'manual') {
+                        document.getElementById('mem-navigation').style.display = 'block';
+                        document.getElementById('prep-navigation').style.display = 'none';
+                        updateNavigationButtons();
+                    }
+                    
+                    updateDisplay();
+                    
+                    // Mostrar botón de pausa y reiniciar fase
+                    document.getElementById('mem-pause-btn').style.display = 'inline-block';
+                    
+                    // Pequeño delay para asegurar transición suave
+                    setTimeout(() => {
+                        phaseStartTime = 0; // Reiniciar phaseStartTime antes de iniciar el timer
+                        startTimer(); // Reiniciar timer con el nuevo tiempo
+                    }, 50);
+                } else {
+                    isPreparationPhase = true;
+                    
+                    document.getElementById('memorization-phase').classList.add('hidden');
+                    document.getElementById('preparation-phase').classList.remove('hidden');
+                    
+                    // Mostrar/ocultar navegación según el modo
+                    if (gameMode === 'manual') {
+                        document.getElementById('mem-navigation').style.display = 'none';
+                        document.getElementById('prep-navigation').style.display = 'block';
+                        updateNavigationButtons();
+                    }
+                    
+                    updatePreparationDisplay();
+                    
+                    // Pequeño delay para asegurar transición suave
+                    setTimeout(() => {
+                        phaseStartTime = 0; // Reiniciar phaseStartTime antes de iniciar el timer
+                        startTimer(); // Reiniciar timer con el nuevo tiempo
+                    }, 50);
                 }
-                
-                updatePreparationDisplay();
-                
-                // Pequeño delay para asegurar transición suave
-                setTimeout(() => {
-                    startTimer(); // Reiniciar timer con el nuevo tiempo
-                }, 50);
             }
         }
 
         // Terminar juego
         function finishGame() {
+            console.log('Función finishGame llamada');
+            console.log('Estado del juego:', gameState);
+            console.log('Fase actual:', isPreparationPhase ? 'preparation' : 'memorization');
             clearInterval(timerInterval);
             
             // Limpiar captura global de teclas
@@ -1964,6 +2805,8 @@
                 window.cleanupKeyCapture = null;
             }
             
+            // Ocultar todas las fases de juego
+            document.getElementById('preparation-phase').classList.add('hidden');
             document.getElementById('memorization-phase').classList.add('hidden');
             document.getElementById('result-phase').classList.remove('hidden');
             
