@@ -938,6 +938,7 @@
                 padding: 8px !important;
                 margin: 0 !important;
                 border-radius: 8px !important;
+                flex: 1 !important;
             }
             
             .name-display div[style*="display: flex"] h3 {
@@ -945,6 +946,50 @@
                 margin: 0 !important;
                 line-height: 1.2 !important;
                 white-space: nowrap !important;
+                color: white !important;
+                font-weight: bold !important;
+            }
+            
+            /* Reglas adicionales para asegurar que se apliquen en móviles apaisado */
+            .name-display div[style*="width: fit-content"] {
+                min-width: 0 !important;
+                max-width: none !important;
+                width: fit-content !important;
+                padding: 8px !important;
+                margin: 0 !important;
+                border-radius: 8px !important;
+                flex: 1 !important;
+            }
+            
+            .name-display div[style*="width: fit-content"] h3 {
+                font-size: 1.6rem !important;
+                margin: 0 !important;
+                line-height: 1.2 !important;
+                white-space: nowrap !important;
+                color: white !important;
+                font-weight: bold !important;
+            }
+            
+            /* Reglas forzadas para móviles apaisado - máxima especificidad */
+            @media (max-width: 768px) and (orientation: landscape) {
+                .name-display div[style*="display: flex"] > div {
+                    min-width: 0 !important;
+                    max-width: none !important;
+                    width: fit-content !important;
+                    padding: 8px !important;
+                    margin: 0 !important;
+                    border-radius: 8px !important;
+                    flex: 1 !important;
+                }
+                
+                .name-display div[style*="display: flex"] > div h3 {
+                    font-size: 1.6rem !important;
+                    margin: 0 !important;
+                    line-height: 1.2 !important;
+                    white-space: nowrap !important;
+                    color: white !important;
+                    font-weight: bold !important;
+                }
             }
             
             .button {
