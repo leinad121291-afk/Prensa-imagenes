@@ -16,7 +16,7 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(139, 69, 19, 0.75);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -93,7 +93,7 @@
         }
 
         .name-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(139, 69, 19, 0.75);
             color: white;
             padding: 40px;
             border-radius: 15px;
@@ -110,7 +110,7 @@
         }
 
         .button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(139, 69, 19, 0.75);
             color: white;
             border: none;
             padding: 15px 30px;
@@ -354,7 +354,7 @@
         
         .progress-fill {
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(139, 69, 19, 0.75);
             transition: width 0.3s ease;
             width: 0%;
         }
@@ -586,7 +586,7 @@
             body {
                 padding: 10px;
                 min-height: 100vh;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                background: rgba(139, 69, 19, 0.75);
             }
             
             .game-container {
@@ -1086,6 +1086,53 @@
                 display: none !important;
             }
         }
+
+        /* Estilos para la fase de preparación */
+        .prep-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .prep-circle {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), rgba(255,255,255,0) 60%), #000000;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25), inset 0 0 0 10px rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 6px solid rgba(255,255,255,0.18);
+            animation: prepPulse 1.6s ease-in-out infinite;
+        }
+        .prep-circle::after {
+            content: '';
+            position: absolute;
+            inset: -14px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, rgba(255,255,255,0.35), rgba(255,255,255,0));
+            filter: blur(8px);
+            opacity: 0.5;
+        }
+        .prep-count {
+            font-size: 6rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 4px 16px rgba(0,0,0,0.35);
+            line-height: 1;
+        }
+        .prep-subtitle {
+            color: #000000;
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        @keyframes prepPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 20px 40px rgba(0,0,0,0.25), inset 0 0 0 10px rgba(255,255,255,0.12); }
+            50% { transform: scale(1.03); box-shadow: 0 24px 48px rgba(0,0,0,0.3), inset 0 0 0 12px rgba(255,255,255,0.15); }
+        }
     </style>
 </head>
 <body>
@@ -1122,7 +1169,7 @@
             <div class="image-gallery" id="image-gallery" style="display: none;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <h3 class="section-title" style="margin: 0;">Galería de Imágenes</h3>
-                    <button class="button" onclick="hideGallery()" style="background: #dc3545;">Ocultar Galería</button>
+                    <button class="button" onclick="hideGallery()" style="background: rgba(139, 69, 19, 0.75);">Ocultar Galería</button>
                 </div>
                 <p id="gallery-description">Visualizando imágenes en orden alfabético</p>
                 <div class="gallery-grid" id="gallery-grid"></div>
@@ -1266,6 +1313,17 @@
                 💡 <span class="desktop-help">Presiona <strong>F11</strong> o usa el botón ⛶ en la esquina superior derecha para pantalla completa</span>
                 <span class="mobile-help" style="display: none;">Usa el botón ⛶ en la esquina superior derecha para pantalla completa</span>
             </p>
+        </div>
+
+        <!-- Fase de Preparación con Cuenta Atrás -->
+        <div id="countdown-phase" class="hidden">
+            <h2 class="phase-title">Preparación</h2>
+            <div class="prep-wrapper">
+                <div class="prep-circle">
+                    <div class="prep-count" id="prep-countdown">5</div>
+                </div>
+                <div class="prep-subtitle"><strong>Prepárate, la memorización comienza en breve...</strong></div>
+            </div>
         </div>
 
         <!-- Fase de Preparación (NOMBRE) -->
@@ -2203,7 +2261,7 @@
                     showGalleryBtn.onclick = showGallery;
                     showGalleryBtn.textContent = 'Mostrar Galería';
                     showGalleryBtn.style.marginTop = '15px';
-                    showGalleryBtn.style.background = '#28a745';
+                    showGalleryBtn.style.background = 'rgba(139, 69, 19, 0.75)';
                     
                     // Insertar después de las opciones de visualización
                     const viewOptions = document.getElementById('view-options');
@@ -2562,56 +2620,73 @@
             
             document.getElementById('setup-phase').classList.add('hidden');
             
-            if (isPreparationPhase) {
-                document.getElementById('preparation-phase').classList.remove('hidden');
-                updatePreparationDisplay();
-            } else {
-                document.getElementById('memorization-phase').classList.remove('hidden');
-                updateDisplay();
-            }
+            // Mostrar fase de preparación con cuenta atrás
+            document.getElementById('countdown-phase').classList.remove('hidden');
             
-            // Mostrar/ocultar navegación según el modo
-            if (gameMode === 'manual') {
-                if (isPreparationPhase) {
-                    document.getElementById('prep-navigation').style.display = 'block';
-                    document.getElementById('mem-navigation').style.display = 'none';
-                } else {
-                    document.getElementById('prep-navigation').style.display = 'none';
-                    document.getElementById('mem-navigation').style.display = 'block';
-                }
-                updateNavigationButtons();
-                // Configurar captura global de teclas
-                window.cleanupKeyCapture = setupGlobalKeyCapture();
+            // Iniciar cuenta atrás de 5 segundos
+            let countdown = 5;
+            const countdownElement = document.getElementById('prep-countdown');
+            const countdownInterval = setInterval(() => {
+                countdownElement.textContent = countdown;
+                countdown--;
                 
-                // Iniciar timer para mostrar tiempo total en modo manual
-                if (durationMode === 'time-limit') {
-                    startManualTimer();
+                if (countdown < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById('countdown-phase').classList.add('hidden');
+                    
+                    // Continuar con la lógica original DESPUÉS de que termine la cuenta atrás
+                    if (isPreparationPhase) {
+                        document.getElementById('preparation-phase').classList.remove('hidden');
+                        updatePreparationDisplay();
+                    } else {
+                        document.getElementById('memorization-phase').classList.remove('hidden');
+                        updateDisplay();
+                    }
+                    
+                    // Mostrar/ocultar navegación según el modo DESPUÉS de la cuenta atrás
+                    if (gameMode === 'manual') {
+                        if (isPreparationPhase) {
+                            document.getElementById('prep-navigation').style.display = 'block';
+                            document.getElementById('mem-navigation').style.display = 'none';
+                        } else {
+                            document.getElementById('prep-navigation').style.display = 'none';
+                            document.getElementById('mem-navigation').style.display = 'block';
+                        }
+                        updateNavigationButtons();
+                        // Configurar captura global de teclas
+                        window.cleanupKeyCapture = setupGlobalKeyCapture();
+                        
+                        // Iniciar timer para mostrar tiempo total en modo manual
+                        if (durationMode === 'time-limit') {
+                            startManualTimer();
+                        }
+                    } else {
+                        document.getElementById('prep-navigation').style.display = 'none';
+                        document.getElementById('mem-navigation').style.display = 'none';
+                        // Reiniciar phaseStartTime antes de iniciar el timer
+                        phaseStartTime = 0;
+                        startTimer();
+                    }
+                    
+                    // Mostrar botón de pausa según la fase DESPUÉS de la cuenta atrás
+                    if (isPreparationPhase) {
+                        document.getElementById('prep-pause-btn').style.display = 'inline-block';
+                    } else {
+                        document.getElementById('mem-pause-btn').style.display = 'inline-block';
+                    }
+                    
+                    // Mostrar información del orden según el modo DESPUÉS de la cuenta atrás
+                    const orderInfoElements = document.querySelectorAll('#order-info');
+                    orderInfoElements.forEach(element => {
+                        if (currentGameMode === 'random') {
+                            element.style.display = 'block';
+                            element.textContent = '🔄 En modo aleatorio, el orden cambia en cada ciclo';
+                        } else {
+                            element.style.display = 'none';
+                        }
+                    });
                 }
-            } else {
-                document.getElementById('prep-navigation').style.display = 'none';
-                document.getElementById('mem-navigation').style.display = 'none';
-                // Reiniciar phaseStartTime antes de iniciar el timer
-                phaseStartTime = 0;
-                startTimer();
-            }
-            
-            // Mostrar botón de pausa según la fase
-            if (isPreparationPhase) {
-                document.getElementById('prep-pause-btn').style.display = 'inline-block';
-            } else {
-                document.getElementById('mem-pause-btn').style.display = 'inline-block';
-            }
-            
-            // Mostrar información del orden según el modo
-            const orderInfoElements = document.querySelectorAll('#order-info');
-            orderInfoElements.forEach(element => {
-                if (currentGameMode === 'random') {
-                    element.style.display = 'block';
-                    element.textContent = '🔄 En modo aleatorio, el orden cambia en cada ciclo';
-                } else {
-                    element.style.display = 'none';
-                }
-            });
+            }, 1000);
         }
 
         // Actualizar pantalla de preparación (NOMBRE)
